@@ -2,6 +2,10 @@
     $home = route('home');
     $navTelHref = 'tel:+611300000000';
     $navMailHref = 'mailto:hello@supportvoiceaustralia.org.au';
+    $navWhatsAppHref = 'https://wa.me/611300000000';
+    $servicesPageUrl = \Illuminate\Support\Facades\Route::has('services')
+        ? route('services')
+        : url('/services');
     $navLinks = [
         ['label' => 'Home', 'href' => $home],
         ['label' => 'About us', 'href' => route('about')],
@@ -176,11 +180,34 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                         </svg>
                     </a>
+
+                    <a
+                        href="{{ $navWhatsAppHref }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-violet-200 bg-white text-sva-ink shadow-sm transition hover:border-violet-300 hover:bg-violet-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
+                        aria-label="WhatsApp"
+                        title="WhatsApp"
+                    >
+                        <svg class="h-6 w-6 text-current" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M20 11.5a8 8 0 0 1-11.9 6.9L4 20l1.7-3.6A8 8 0 1 1 20 11.5Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9.4 9.1c.3-.7.6-.7 1-.7h.7c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4 0 .6l-.3.5c-.1.2-.2.3-.1.5.2.6.8 1.3 1.4 1.6.2.1.4.1.6 0l.6-.3c.2-.1.4-.1.6 0l1.4.7c.2.1.3.3.3.5v.7c0 .4-.1.7-.6 1-1 .6-2.3.2-3.5-.4-1.3-.7-2.5-1.9-3.2-3.2-.6-1.2-1-2.5-.4-3.5Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+
                     <a
                         href="{{ route('contact') }}"
                         class="inline-flex min-h-11 shrink-0 items-center justify-center rounded-lg bg-sva-accent px-3 text-sm font-semibold text-white shadow-md transition hover:bg-sva-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-700 sm:px-4"
                     >
                         Contact us
+                    </a>
+
+                    <a
+                        href="{{ $servicesPageUrl }}"
+                        class="hidden min-h-11 items-center justify-center rounded-lg bg-white px-3 text-sm font-semibold text-sva-ink shadow-md ring-1 ring-violet-200/60 transition hover:bg-violet-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 lg:inline-flex"
+                        aria-label="Request services"
+                    >
+                        Request Services
                     </a>
                 </div>
 

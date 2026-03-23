@@ -40,7 +40,7 @@
         <img
             src="{{ asset('img/heroimg.jpeg') }}"
             alt="Support worker assisting a child"
-            class="h-[62vh] min-h-[420px] w-full object-cover object-center md:h-[72vh] md:min-h-[520px]"
+            class="h-[75vh] min-h-[480px] w-full object-cover object-[50%_25%] md:h-[85vh] md:min-h-[600px]"
             loading="eager"
             decoding="async"
         >
