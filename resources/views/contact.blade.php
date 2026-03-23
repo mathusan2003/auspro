@@ -76,15 +76,18 @@
 
                                 <div>
                                     <label for="contact-subject" class="block text-sm font-semibold text-sva-ink">Subject <span class="font-normal text-sva-body">(optional)</span></label>
-                                    <input
-                                        type="text"
+                                    <select
                                         name="subject"
                                         id="contact-subject"
-                                        value="{{ old('subject') }}"
-                                        maxlength="255"
                                         class="mt-2 min-h-12 w-full rounded-xl border border-violet-200 bg-white px-4 py-3 text-base text-sva-ink shadow-sm transition placeholder:text-violet-300 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-400/30"
-                                        placeholder="What is your enquiry about?"
                                     >
+                                        <option value="">Select a subject (optional)</option>
+                                        <option value="Subject 1" @selected(old('subject') === 'Subject 1')>Subject 1</option>
+                                        <option value="Subject 2" @selected(old('subject') === 'Subject 2')>Subject 2</option>
+                                        <option value="Subject 3" @selected(old('subject') === 'Subject 3')>Subject 3</option>
+                                        <option value="Subject 4" @selected(old('subject') === 'Subject 4')>Subject 4</option>
+                                        <option value="Others" @selected(old('subject') === 'Others')>Others</option>
+                                    </select>
                                     @error('subject')
                                         <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                     @enderror
