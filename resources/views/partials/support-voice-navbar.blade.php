@@ -72,7 +72,7 @@
                 aria-label="Support Voice Australia — Home"
             >
                 <img
-                    src="{{ asset('img/newlogo.svg') }}"
+                    src="{{ asset('img/navilogo.png') }}"
                     alt="Support Voice Australia"
                     class="h-24 w-auto max-h-32 shrink-0 object-contain sm:h-28 sm:max-h-36 md:h-32 md:max-h-40 lg:h-36 lg:max-h-44"
                     decoding="async"
@@ -219,11 +219,8 @@
                     x-on:click.stop="toggleMenu()"
                 >
                     <span class="sr-only">Toggle menu</span>
-                    <svg class="h-6 w-6" x-show="! menuOpen" x-cloak viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/>
-                    </svg>
-                    <svg class="h-6 w-6" x-show="menuOpen" x-cloak viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/>
                     </svg>
                 </button>
             </div>
@@ -232,63 +229,63 @@
     </div>
 
     <template x-teleport="body">
-        <div
-            id="mobile-navigation"
-            class="fixed inset-0 z-[100] lg:hidden"
-            data-mobile-panel
-            x-show="menuOpen"
-            x-transition:enter="transition ease-out duration-200"
-            x-transition:enter-start="opacity-0"
-            x-transition:enter-end="opacity-100"
-            x-transition:leave="transition ease-in duration-150"
-            x-transition:leave-start="opacity-100"
-            x-transition:leave-end="opacity-0"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Mobile navigation"
-        >
+        <div class="contents lg:hidden" data-mobile-panel>
             <div
-                class="relative flex h-full w-full flex-col bg-[#2A8898]"
+                class="fixed inset-0 z-[100] bg-black/50 backdrop-blur-[2px]"
+                aria-hidden="true"
+                x-show="menuOpen"
+                x-cloak
+                x-transition:enter="transition-opacity ease-out duration-300"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition-opacity ease-in duration-200"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                x-on:click="closeMenu()"
+            ></div>
+
+            <aside
+                id="mobile-navigation"
+                class="fixed right-0 top-0 z-[101] flex h-full w-[min(82vw,22rem)] flex-col bg-white shadow-[-10px_0_28px_rgba(15,23,42,0.12)]"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Mobile navigation"
+                x-show="menuOpen"
+                x-cloak
                 x-on:click.stop
+                x-transition:enter="transform transition ease-out duration-300"
+                x-transition:enter-start="translate-x-full"
+                x-transition:enter-end="translate-x-0"
+                x-transition:leave="transform transition ease-in duration-200"
+                x-transition:leave-start="translate-x-0"
+                x-transition:leave-end="translate-x-full"
             >
-                <div class="flex items-center justify-between px-5 pt-5 sm:px-6">
-                    <a
-                        href="{{ url('/') }}"
-                        class="inline-flex items-center rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                        x-on:click="closeMenu()"
-                        aria-label="Support Voice Australia — Home"
-                    >
-                        <img
-                            src="{{ asset('img/newlogo.svg') }}"
-                            alt="Support Voice Australia"
-                            class="h-12 w-auto object-contain"
-                            decoding="async"
-                        >
-                    </a>
+                <div class="flex shrink-0 items-center justify-between border-b border-neutral-200 px-5 pb-4 pt-6 sm:px-6">
+                    <span class="text-lg font-bold tracking-tight text-[#2D2D5F]">Menu</span>
                     <button
                         type="button"
-                        class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-white/60 bg-white/10 text-white transition hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-neutral-300 bg-white text-[#2D2D5F] shadow-sm transition hover:bg-neutral-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
                         x-on:click="closeMenu()"
                     >
                         <span class="sr-only">Close menu</span>
-                        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/>
                         </svg>
                     </button>
                 </div>
 
-                <nav class="flex flex-1 flex-col items-center justify-center overflow-y-auto px-6 pb-12 pt-8" aria-label="Mobile primary">
+                <nav class="flex flex-1 flex-col overflow-y-auto px-2 py-4 sm:px-3" aria-label="Mobile primary">
                     @foreach ($mobileNavLinks as $link)
                         @if (! empty($link['dropdown']))
-                            <div class="flex w-full max-w-xs flex-col items-center">
+                            <div class="flex flex-col">
                                 <button
                                     type="button"
-                                    class="flex min-h-12 w-full items-center justify-center gap-2 px-2 py-1 text-center text-[2rem] font-medium leading-tight text-white/90 transition hover:text-white"
+                                    class="flex w-full items-center justify-between gap-3 px-4 py-4 text-left text-base font-medium text-[#2D2D5F] transition hover:bg-violet-50/80 sm:text-[1.05rem]"
                                     x-bind:aria-expanded="qaMobileOpen ? 'true' : 'false'"
                                     x-on:click="qaMobileOpen = ! qaMobileOpen"
                                 >
                                     <span>{{ $link['label'] }}</span>
-                                    <svg class="h-5 w-5 shrink-0 text-white/85 transition-transform duration-200" x-bind:class="qaMobileOpen ? 'rotate-180' : ''" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <svg class="h-5 w-5 shrink-0 text-[#2D2D5F]/80 transition-transform duration-200" x-bind:class="qaMobileOpen ? 'rotate-180' : ''" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                         <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                 </button>
@@ -300,12 +297,12 @@
                                     x-transition:leave="transition ease-in duration-150"
                                     x-transition:leave-start="opacity-100 translate-y-0"
                                     x-transition:leave-end="opacity-0 -translate-y-1"
-                                    class="mt-1 flex w-full flex-col items-center gap-1"
+                                    class="flex flex-col border-l border-violet-200/80 pl-4 ml-4 mr-2"
                                 >
                                     @foreach ($link['children'] as $child)
                                         <a
                                             href="{{ $child['href'] }}"
-                                            class="min-h-10 px-3 py-1 text-center text-lg font-medium text-white/80 transition hover:text-white"
+                                            class="px-3 py-3 text-sm font-medium text-[#2D2D5F]/90 transition hover:bg-violet-50/80 sm:text-base"
                                             data-mobile-nav-link
                                             x-on:click="closeMenu()"
                                         >
@@ -317,7 +314,7 @@
                         @else
                             <a
                                 href="{{ $link['href'] }}"
-                                class="flex min-h-12 w-full max-w-xs items-center justify-center px-2 py-1 text-center text-[2rem] font-medium leading-tight text-white/90 transition hover:text-white"
+                                class="block px-4 py-4 text-base font-medium text-[#2D2D5F] transition hover:bg-violet-50/80 sm:text-[1.05rem]"
                                 data-mobile-nav-link
                                 x-on:click="closeMenu()"
                             >
@@ -326,7 +323,7 @@
                         @endif
                     @endforeach
                 </nav>
-            </div>
+            </aside>
         </div>
     </template>
 </header>

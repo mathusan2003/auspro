@@ -36,31 +36,36 @@
         ];
     @endphp
 
-    <section class="relative isolate overflow-hidden">
-        <img
-            src="{{ asset('img/heroback2.png') }}"
-            alt="Support worker assisting a child"
-            class="h-[64vh] min-h-[360px] w-full object-cover object-center sm:h-[70vh] md:h-[80vh] md:min-h-[560px]"
-            loading="eager"
-            decoding="async"
-        >
-        <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(49,46,129,0.78)_0%,rgba(79,70,229,0.45)_38%,rgba(99,102,241,0.16)_68%,rgba(99,102,241,0.04)_100%)]"></div>
-        <div class="absolute inset-0 flex items-center">
-            <div class="container mx-auto px-4">
-                <div class="max-w-2xl text-white">
-                    <p class="max-w-xl text-base leading-relaxed text-white/90 sm:text-lg">
-                        Support Voice Australia exists to amplify participant voices, strengthen community connections, and make navigating the NDIS clearer and fairer. We bring people together through advocacy, education, and practical support so every person can pursue their goals with confidence.
-                    </p>
-                    <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                        <a
-                            href="{{ route('about') }}"
-                            class="inline-flex min-h-12 items-center justify-center rounded-xl bg-white px-6 text-base font-semibold text-indigo-700 shadow-md transition hover:bg-violet-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                        >
-                            Learn More
-                        </a>
-                    </div>
-                </div>
-            </div>
+    <section
+        class="relative isolate flex min-h-[360px] h-[64vh] items-center justify-center overflow-hidden sm:h-[70vh] md:h-[80vh] md:min-h-[560px]"
+        aria-label="Support Voice Australia hero"
+    >
+        <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+            <img
+                src="{{ asset('img/newh.png') }}"
+                alt=""
+                class="h-full w-full scale-105 object-cover object-center blur-[2px] brightness-[1.06] saturate-95"
+                loading="eager"
+                decoding="async"
+            >
+            <div class="absolute inset-0 bg-gradient-to-b from-white/55 via-violet-50/30 to-sva-lavender/50"></div>
+            <div class="absolute inset-0 bg-violet-200/15"></div>
+        </div>
+
+        <div class="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 py-12 text-center sm:max-w-5xl sm:py-14 md:py-16">
+            <img
+                src="{{ asset('img/navilogo.png') }}"
+                alt="Support Voice Australia"
+                class="w-full max-w-[15.5rem] object-contain drop-shadow-sm sm:max-w-[17.5rem] md:max-w-[21rem] lg:max-w-[23rem]"
+                decoding="async"
+                fetchpriority="high"
+            >
+            <h1 class="mt-8 max-w-3xl text-balance text-2xl font-bold leading-snug tracking-tight text-sva-ink sm:mt-10 sm:text-3xl md:mt-12 md:text-[2.05rem] md:leading-tight lg:text-[2.25rem]">
+                Support Voice Australia – Supporting You Every Step of the Way
+            </h1>
+            <p class="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-sva-body sm:mt-5 sm:text-lg">
+                Personalised NDIS support designed around your needs and goals.
+            </p>
         </div>
     </section>
 
@@ -155,9 +160,6 @@
                 <h2 class="text-center text-3xl font-bold tracking-tight text-sva-ink sm:text-4xl">
                     Our Services
                 </h2>
-                <p class="mx-auto mt-4 max-w-2xl text-center text-base leading-relaxed text-sva-body">
-                    Practical support designed for real life on mobile — clear, approachable, and easy to explore.
-                </p>
 
                 <div
                     class="relative mx-auto mt-10 w-full max-w-6xl overflow-hidden py-2"
@@ -178,7 +180,7 @@
                     <div class="relative mx-auto h-[22rem] sm:h-[20rem] md:h-[24rem]">
                         <template x-for="(slide, index) in slides" :key="slide.title">
                             <article
-                                class="absolute left-1/2 top-1/2 w-[88%] max-w-3xl -translate-x-1/2 -translate-y-1/2 rounded-[2rem] border border-violet-200/55 bg-[#3A6A9C] p-7 text-white shadow-[0_18px_45px_rgba(37,62,109,0.28)] transition-all duration-500 ease-out sm:p-8 md:w-[74%] md:p-10"
+                                class="absolute left-1/2 top-1/2 w-[88%] max-w-3xl -translate-x-1/2 -translate-y-1/2 rounded-2xl rounded-br-[3.25rem] border border-violet-200/55 bg-[#7b5ea7] p-7 text-white shadow-[0_18px_45px_rgba(91,46,135,0.32)] transition-all duration-500 ease-out sm:p-8 md:w-[74%] md:p-10"
                                 x-bind:class="{
                                     'z-30 scale-100 opacity-100': index === current,
                                     'z-20 hidden -translate-x-[112%] scale-[0.92] opacity-35 md:block': isPrev(index),
@@ -186,11 +188,9 @@
                                     'z-0 pointer-events-none scale-90 opacity-0': index !== current && !isPrev(index) && !isNext(index),
                                 }"
                             >
-                                <div class="text-6xl font-black leading-none text-white/20" aria-hidden="true">“</div>
-                                <h3 class="mt-2 text-lg font-semibold leading-snug sm:text-xl" x-text="slide.title"></h3>
+                                <h3 class="text-center text-xl font-bold leading-snug sm:text-2xl md:text-[1.65rem]" x-text="slide.title"></h3>
                                 <p class="mt-4 text-sm leading-relaxed text-white/92 sm:text-base" x-text="slide.description"></p>
                                 <div class="mt-6 text-sm tracking-[0.28em] text-white/90" aria-hidden="true">★★★★★</div>
-                                <div class="absolute -bottom-2.5 left-1/2 h-5 w-5 -translate-x-1/2 rotate-45 rounded-[3px] bg-[#3A6A9C]"></div>
                             </article>
                         </template>
                     </div>
