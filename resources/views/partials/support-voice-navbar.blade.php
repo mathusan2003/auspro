@@ -74,7 +74,7 @@
                 <img
                     src="{{ asset('img/newlogo.svg') }}"
                     alt="Support Voice Australia"
-                    class="h-16 w-auto max-h-24 shrink-0 object-contain sm:h-20 sm:max-h-28 md:h-24 md:max-h-32 lg:h-28 lg:max-h-36"
+                    class="h-24 w-auto max-h-32 shrink-0 object-contain sm:h-28 sm:max-h-36 md:h-32 md:max-h-40 lg:h-36 lg:max-h-44"
                     decoding="async"
                     fetchpriority="high"
                 >
@@ -161,7 +161,7 @@
             </nav>
 
             <div class="flex shrink-0 items-center gap-2">
-                <div class="flex items-center gap-1 sm:gap-1.5">
+                <div class="hidden items-center gap-1 sm:gap-1.5 lg:flex">
                     <a
                         href="{{ $navTelHref }}"
                         class="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-lg border border-violet-200 bg-white text-sva-ink shadow-sm transition hover:border-violet-300 hover:bg-violet-50 hover:text-sva-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
@@ -181,11 +181,11 @@
                         </svg>
                     </a>
 
-                    <a
+                <a
                         href="{{ $navWhatsAppHref }}"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-violet-200 bg-white text-sva-ink shadow-sm transition hover:border-violet-300 hover:bg-violet-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
+                    class="hidden min-h-11 min-w-11 items-center justify-center rounded-lg border border-violet-200 bg-white text-sva-ink shadow-sm transition hover:border-violet-300 hover:bg-violet-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 lg:inline-flex"
                         aria-label="WhatsApp"
                         title="WhatsApp"
                     >
@@ -234,7 +234,7 @@
     <template x-teleport="body">
         <div
             id="mobile-navigation"
-            class="fixed inset-0 z-[100] flex items-stretch justify-end lg:hidden"
+            class="fixed inset-0 z-[100] lg:hidden"
             data-mobile-panel
             x-show="menuOpen"
             x-transition:enter="transition ease-out duration-200"
@@ -247,29 +247,27 @@
             aria-modal="true"
             aria-label="Mobile navigation"
         >
-            <button
-                type="button"
-                class="absolute inset-0 bg-sva-ink/40 backdrop-blur-[2px]"
-                data-mobile-overlay
-                tabindex="-1"
-                aria-label="Close menu"
-                x-on:click="closeMenu()"
-            ></button>
             <div
-                class="relative z-10 flex h-full w-[min(100%,22rem)] max-w-full flex-col bg-white shadow-2xl"
-                x-transition:enter="transform transition ease-out duration-300"
-                x-transition:enter-start="translate-x-full"
-                x-transition:enter-end="translate-x-0"
-                x-transition:leave="transform transition ease-in duration-200"
-                x-transition:leave-start="translate-x-0"
-                x-transition:leave-end="translate-x-full"
+                class="relative flex h-full w-full flex-col bg-[#2A8898]"
                 x-on:click.stop
             >
-                <div class="flex items-center justify-between border-b border-violet-100 px-4 py-4">
-                    <span class="text-sm font-semibold text-sva-ink">Menu</span>
+                <div class="flex items-center justify-between px-5 pt-5 sm:px-6">
+                    <a
+                        href="{{ url('/') }}"
+                        class="inline-flex items-center rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                        x-on:click="closeMenu()"
+                        aria-label="Support Voice Australia — Home"
+                    >
+                        <img
+                            src="{{ asset('img/newlogo.svg') }}"
+                            alt="Support Voice Australia"
+                            class="h-12 w-auto object-contain"
+                            decoding="async"
+                        >
+                    </a>
                     <button
                         type="button"
-                        class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-violet-200 text-sva-ink hover:bg-violet-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
+                        class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-white/60 bg-white/10 text-white transition hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                         x-on:click="closeMenu()"
                     >
                         <span class="sr-only">Close menu</span>
@@ -278,18 +276,19 @@
                         </svg>
                     </button>
                 </div>
-                <nav class="flex flex-1 flex-col gap-1 overflow-y-auto px-3 py-4" aria-label="Mobile primary">
+
+                <nav class="flex flex-1 flex-col items-center justify-center overflow-y-auto px-6 pb-12 pt-8" aria-label="Mobile primary">
                     @foreach ($mobileNavLinks as $link)
                         @if (! empty($link['dropdown']))
-                            <div class="flex flex-col rounded-xl">
+                            <div class="flex w-full max-w-xs flex-col items-center">
                                 <button
                                     type="button"
-                                    class="flex min-h-12 w-full items-center justify-between rounded-xl px-4 py-3 text-left text-base font-medium text-sva-ink transition hover:bg-violet-50 active:bg-violet-100"
+                                    class="flex min-h-12 w-full items-center justify-center gap-2 px-2 py-1 text-center text-[2rem] font-medium leading-tight text-white/90 transition hover:text-white"
                                     x-bind:aria-expanded="qaMobileOpen ? 'true' : 'false'"
                                     x-on:click="qaMobileOpen = ! qaMobileOpen"
                                 >
                                     <span>{{ $link['label'] }}</span>
-                                    <svg class="h-5 w-5 shrink-0 text-sva-body transition-transform duration-200" x-bind:class="qaMobileOpen ? 'rotate-180' : ''" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <svg class="h-5 w-5 shrink-0 text-white/85 transition-transform duration-200" x-bind:class="qaMobileOpen ? 'rotate-180' : ''" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                         <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                 </button>
@@ -301,12 +300,12 @@
                                     x-transition:leave="transition ease-in duration-150"
                                     x-transition:leave-start="opacity-100 translate-y-0"
                                     x-transition:leave-end="opacity-0 -translate-y-1"
-                                    class="flex flex-col gap-0.5 border-l-2 border-violet-200/80 py-1 pl-3 ml-4"
+                                    class="mt-1 flex w-full flex-col items-center gap-1"
                                 >
                                     @foreach ($link['children'] as $child)
                                         <a
                                             href="{{ $child['href'] }}"
-                                            class="flex min-h-11 items-center rounded-lg px-3 py-2.5 text-sm font-medium text-sva-body transition hover:bg-violet-50 hover:text-sva-accent"
+                                            class="min-h-10 px-3 py-1 text-center text-lg font-medium text-white/80 transition hover:text-white"
                                             data-mobile-nav-link
                                             x-on:click="closeMenu()"
                                         >
@@ -318,7 +317,7 @@
                         @else
                             <a
                                 href="{{ $link['href'] }}"
-                                class="flex min-h-12 items-center rounded-xl px-4 py-3 text-base font-medium text-sva-ink transition hover:bg-violet-50 active:bg-violet-100"
+                                class="flex min-h-12 w-full max-w-xs items-center justify-center px-2 py-1 text-center text-[2rem] font-medium leading-tight text-white/90 transition hover:text-white"
                                 data-mobile-nav-link
                                 x-on:click="closeMenu()"
                             >

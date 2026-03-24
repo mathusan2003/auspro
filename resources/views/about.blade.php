@@ -5,9 +5,9 @@
 @section('content')
     <section class="relative isolate overflow-hidden">
         <img
-            src="{{ asset('img/heroimg.jpeg') }}"
+            src="{{ asset('img/heroback2.png') }}"
             alt="Support worker assisting a child"
-            class="h-[75vh] min-h-[480px] w-full object-cover object-[50%_25%] md:h-[85vh] md:min-h-[600px]"
+            class="h-[64vh] min-h-[360px] w-full object-cover object-center sm:h-[70vh] md:h-[80vh] md:min-h-[560px]"
             loading="eager"
             decoding="async"
         >

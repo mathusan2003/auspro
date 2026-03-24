@@ -38,9 +38,9 @@
 
     <section class="relative isolate overflow-hidden">
         <img
-            src="{{ asset('img/heroimg.jpeg') }}"
+            src="{{ asset('img/heroback2.png') }}"
             alt="Support worker assisting a child"
-            class="h-[75vh] min-h-[480px] w-full object-cover object-[50%_25%] md:h-[85vh] md:min-h-[600px]"
+            class="h-[64vh] min-h-[360px] w-full object-cover object-center sm:h-[70vh] md:h-[80vh] md:min-h-[560px]"
             loading="eager"
             decoding="async"
         >
@@ -64,6 +64,19 @@
         </div>
     </section>
 
+    <section class="bg-white py-12 sm:py-14 md:py-16">
+        <div class="container mx-auto px-4">
+            <div class="mx-auto max-w-4xl text-center">
+                <h2 class="text-3xl font-semibold tracking-tight text-sva-ink sm:text-4xl md:text-[2.65rem]">
+                    We are here to support
+                </h2>
+                <p class="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-sva-body sm:text-lg">
+                    Support Voice Australia exists to amplify participant voices, strengthen community connections, and make navigating the NDIS clearer and fairer. We bring people together through advocacy, education, and practical support so every person can pursue their goals with confidence.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <div class="relative isolate overflow-hidden bg-gradient-to-br from-violet-100 via-sva-lavender to-violet-200/70 pt-8 md:pt-10 lg:pt-12">
         <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
             <div class="absolute -left-24 top-0 h-72 w-72 rounded-full bg-violet-400/25 blur-3xl md:-left-32 md:h-96 md:w-96"></div>
@@ -78,99 +91,133 @@
                 : url('/services');
         @endphp
 
+        @php
+            $serviceDescriptions = [
+                'Community Networking and Support Forum' => 'Build meaningful peer connections through guided forums and community-led support spaces.',
+                'Support Network Development' => 'Strengthen your personal support circle with practical planning and trusted local connections.',
+                'Advocacy and Participant Support' => 'Receive participant-first advocacy that protects your rights and helps you navigate decisions confidently.',
+                'Information and Education Session' => 'Access clear NDIS education sessions that simplify complex information for families and participants.',
+                'Resource and Information Hub' => 'Explore reliable tools, references, and curated resources in one easy-to-use place.',
+                'Service Provider Connection and Guidance' => 'Find suitable providers faster with informed guidance tailored to your goals and preferences.',
+                'Stakeholder Engagement and Collaboration' => 'Create better outcomes through coordinated communication with families, providers, and communities.',
+            ];
+            $serviceSlides = array_map(
+                fn ($service) => [
+                    'title' => $service['title'],
+                    'description' => $serviceDescriptions[$service['title']] ?? 'Practical support designed around your goals.',
+                ],
+                $services,
+            );
+        @endphp
+
         <section
             id="services"
             class="relative isolate scroll-mt-24 overflow-hidden bg-[#D4D2F7] py-14 md:py-20"
-            data-services-magnifier
+            x-data="{
+                slides: @js($serviceSlides),
+                current: 0,
+                timer: null,
+                touchStartX: 0,
+                init() { this.startAuto(); },
+                startAuto() {
+                    this.stopAuto();
+                    this.timer = setInterval(() => this.next(), 5000);
+                },
+                stopAuto() {
+                    if (this.timer) clearInterval(this.timer);
+                    this.timer = null;
+                },
+                next() { this.current = (this.current + 1) % this.slides.length; },
+                prev() { this.current = (this.current - 1 + this.slides.length) % this.slides.length; },
+                isPrev(i) { return i === (this.current - 1 + this.slides.length) % this.slides.length; },
+                isNext(i) { return i === (this.current + 1) % this.slides.length; },
+                onTouchStart(e) {
+                    this.touchStartX = e.changedTouches[0]?.clientX ?? 0;
+                    this.stopAuto();
+                },
+                onTouchEnd(e) {
+                    const endX = e.changedTouches[0]?.clientX ?? this.touchStartX;
+                    const delta = endX - this.touchStartX;
+                    if (Math.abs(delta) > 40) {
+                        delta > 0 ? this.prev() : this.next();
+                    }
+                    this.startAuto();
+                },
+            }"
+            x-on:mouseenter="stopAuto()"
+            x-on:mouseleave="startAuto()"
         >
             <div class="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
-                {{-- Mobile / coarse pointer: subtle static wash (no JS tracking) --}}
-                <div class="absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_50%_32%,rgba(255,255,255,0.2)_0%,rgba(233,213,255,0.07)_45%,transparent_70%)]"></div>
+                <div class="absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_50%_35%,rgba(255,255,255,0.28)_0%,rgba(233,213,255,0.1)_48%,transparent_74%)]"></div>
             </div>
 
-            {{-- Desktop: circular magnifier (cloned #services-source scaled inside; see initServicesMagnifier in app.js) --}}
-            <a
-                id="services-lens"
-                href="{{ $servicesUrl }}"
-                class="absolute left-0 top-0 z-20 flex h-[220px] w-[220px] items-center justify-center overflow-hidden rounded-full border border-white/25 bg-transparent opacity-0 shadow-[0_0_0_1px_rgba(255,255,255,0.12),0_0_36px_rgba(124,58,237,0.22),0_12px_40px_rgba(91,33,182,0.12)] ring-1 ring-violet-200/30 transition-opacity duration-300 ease-out will-change-[transform,opacity] motion-reduce:hidden"
-                aria-label="Explore more services"
-            >
-                <div id="services-lens-inner" class="pointer-events-none absolute left-0 top-0 origin-top-left will-change-[left,top]"></div>
-                <span class="relative z-20 text-center text-sm font-semibold uppercase tracking-[0.14em] text-violet-950/90 drop-shadow-[0_1px_1px_rgba(255,255,255,0.65)]">
-                    Explore More
-                </span>
-            </a>
-
-            <div id="services-source" class="container relative z-10 mx-auto px-4">
+            <div class="container relative z-10 mx-auto px-4">
                 <h2 class="text-center text-3xl font-bold tracking-tight text-sva-ink sm:text-4xl">
                     Our Services
                 </h2>
                 <p class="mx-auto mt-4 max-w-2xl text-center text-base leading-relaxed text-sva-body">
                     Practical support designed for real life on mobile — clear, approachable, and easy to explore.
                 </p>
-                <ul class="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 md:gap-6">
-                    @foreach ($services as $service)
-                        <li>
-                            <article class="flex min-h-[5.5rem] items-center gap-4 rounded-2xl border border-violet-100 bg-gradient-to-br from-white to-violet-50/80 p-4 shadow-md shadow-violet-100/60 transition hover:border-violet-200 hover:shadow-lg sm:gap-5 sm:p-5">
-                                <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-sva-accent text-white shadow-md ring-4 ring-violet-100 sm:h-16 sm:w-16" aria-hidden="true">
-                                    @switch($service['icon'])
-                                        @case('users')
-                                            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke-linecap="round"/>
-                                                <circle cx="9" cy="7" r="3"/>
-                                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke-linecap="round"/>
-                                            </svg>
-                                            @break
-                                        @case('network')
-                                            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                                                <circle cx="5" cy="6" r="2.2"/>
-                                                <circle cx="19" cy="6" r="2.2"/>
-                                                <circle cx="12" cy="18" r="2.2"/>
-                                                <path d="M6.8 7.6L10 16M17.2 7.6L14 16M7.5 6h9" stroke-linecap="round"/>
-                                            </svg>
-                                            @break
-                                        @case('megaphone')
-                                            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                                                <path d="M3 11v4h4l5 3V8l-5 3H3Z" stroke-linejoin="round"/>
-                                                <path d="M16 9a4 4 0 0 1 0 6" stroke-linecap="round"/>
-                                            </svg>
-                                            @break
-                                        @case('education')
-                                            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                                                <path d="M4 19.5V6l8-3 8 3v13.5" stroke-linejoin="round"/>
-                                                <path d="M12 3v18" stroke-linecap="round"/>
-                                                <path d="M8 11h2M8 15h4" stroke-linecap="round"/>
-                                            </svg>
-                                            @break
-                                        @case('hub')
-                                            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                                                <path d="M4 6h7v6H4V6Z" stroke-linejoin="round"/>
-                                                <path d="M13 6h7v4h-7V6Z" stroke-linejoin="round"/>
-                                                <path d="M13 12h7v6h-7v-6Z" stroke-linejoin="round"/>
-                                                <path d="M4 14h7v4H4v-4Z" stroke-linejoin="round"/>
-                                            </svg>
-                                            @break
-                                        @case('provider')
-                                            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                                                <path d="M12 3l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V7l7-4Z" stroke-linejoin="round"/>
-                                                <path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                            @break
-                                        @default
-                                            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                                                <circle cx="8" cy="9" r="2.2"/>
-                                                <circle cx="16" cy="9" r="2.2"/>
-                                                <path d="M4 20c1.2-3 3.8-5 8-5s6.8 2 8 5" stroke-linecap="round"/>
-                                            </svg>
-                                    @endswitch
-                                </div>
-                                <h3 class="text-base font-semibold leading-snug text-sva-ink sm:text-lg">
-                                    {{ $service['title'] }}
-                                </h3>
+
+                <div
+                    class="relative mx-auto mt-10 w-full max-w-6xl overflow-hidden py-2"
+                    x-on:touchstart.passive="onTouchStart($event)"
+                    x-on:touchend.passive="onTouchEnd($event)"
+                >
+                    <button
+                        type="button"
+                        class="absolute left-2 top-1/2 z-40 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-violet-200/80 bg-white/85 text-sva-ink shadow-md transition hover:bg-white md:flex"
+                        x-on:click="prev(); startAuto()"
+                        aria-label="Previous service"
+                    >
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+
+                    <div class="relative mx-auto h-[22rem] sm:h-[20rem] md:h-[24rem]">
+                        <template x-for="(slide, index) in slides" :key="slide.title">
+                            <article
+                                class="absolute left-1/2 top-1/2 w-[88%] max-w-3xl -translate-x-1/2 -translate-y-1/2 rounded-[2rem] border border-violet-200/55 bg-[#3A6A9C] p-7 text-white shadow-[0_18px_45px_rgba(37,62,109,0.28)] transition-all duration-500 ease-out sm:p-8 md:w-[74%] md:p-10"
+                                x-bind:class="{
+                                    'z-30 scale-100 opacity-100': index === current,
+                                    'z-20 hidden -translate-x-[112%] scale-[0.92] opacity-35 md:block': isPrev(index),
+                                    'z-20 hidden translate-x-[12%] scale-[0.92] opacity-35 md:block': isNext(index),
+                                    'z-0 pointer-events-none scale-90 opacity-0': index !== current && !isPrev(index) && !isNext(index),
+                                }"
+                            >
+                                <div class="text-6xl font-black leading-none text-white/20" aria-hidden="true">“</div>
+                                <h3 class="mt-2 text-lg font-semibold leading-snug sm:text-xl" x-text="slide.title"></h3>
+                                <p class="mt-4 text-sm leading-relaxed text-white/92 sm:text-base" x-text="slide.description"></p>
+                                <div class="mt-6 text-sm tracking-[0.28em] text-white/90" aria-hidden="true">★★★★★</div>
+                                <div class="absolute -bottom-2.5 left-1/2 h-5 w-5 -translate-x-1/2 rotate-45 rounded-[3px] bg-[#3A6A9C]"></div>
                             </article>
-                        </li>
-                    @endforeach
-                </ul>
+                        </template>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="absolute right-2 top-1/2 z-40 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-violet-200/80 bg-white/85 text-sva-ink shadow-md transition hover:bg-white md:flex"
+                        x-on:click="next(); startAuto()"
+                        aria-label="Next service"
+                    >
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="mt-6 flex items-center justify-center gap-2">
+                    <template x-for="(slide, i) in slides" :key="`dot-${i}`">
+                        <button
+                            type="button"
+                            class="h-2.5 w-2.5 rounded-full transition"
+                            x-bind:class="i === current ? 'bg-sva-accent w-6' : 'bg-violet-300/80 hover:bg-violet-400'"
+                            x-on:click="current = i; startAuto()"
+                            :aria-label="`Go to service ${i + 1}`"
+                        ></button>
+                    </template>
+                </div>
             </div>
         </section>
 
@@ -181,30 +228,29 @@
                     Frequently Asked Questions
                 </h2>
 
-                <div class="mx-auto mt-12 max-w-5xl space-y-8 sm:mt-14 sm:space-y-10 md:mt-16 md:space-y-12">
-                    <div class="grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-8 md:gap-10 lg:gap-12">
-                        <a
-                            href="#"
-                            class="group relative flex min-h-[6.5rem] items-center justify-center rounded-[1.75rem] bg-gradient-to-br from-white via-violet-50/95 to-sva-lavender/85 px-7 py-8 text-center text-base font-semibold leading-snug text-sva-ink shadow-[0_4px_24px_rgba(109,40,217,0.1),0_20px_44px_-8px_rgba(76,29,149,0.2),14px_26px_52px_-12px_rgba(88,28,135,0.18),inset_0_1px_0_rgba(255,255,255,0.9)] ring-1 ring-violet-100/80 transition duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_8px_32px_rgba(109,40,217,0.14),0_28px_56px_-10px_rgba(76,29,149,0.26),18px_32px_64px_-14px_rgba(88,28,135,0.22),inset_0_1px_0_rgba(255,255,255,0.95)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-600 sm:min-h-32 sm:rounded-[2rem] sm:px-8 sm:py-10 sm:text-lg md:translate-y-1"
-                        >
-                            How to get the best out of your NDIS Plan
-                        </a>
-                        <a
-                            href="#"
-                            class="group relative flex min-h-[6.5rem] items-center justify-center rounded-[1.75rem] bg-gradient-to-br from-white via-violet-50/95 to-sva-lavender/85 px-7 py-8 text-center text-base font-semibold leading-snug text-sva-ink shadow-[0_4px_24px_rgba(109,40,217,0.1),0_20px_44px_-8px_rgba(76,29,149,0.2),14px_26px_52px_-12px_rgba(88,28,135,0.18),inset_0_1px_0_rgba(255,255,255,0.9)] ring-1 ring-violet-100/80 transition duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_8px_32px_rgba(109,40,217,0.14),0_28px_56px_-10px_rgba(76,29,149,0.26),18px_32px_64px_-14px_rgba(88,28,135,0.22),inset_0_1px_0_rgba(255,255,255,0.95)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-600 sm:min-h-32 sm:rounded-[2rem] sm:px-8 sm:py-10 sm:text-lg md:-translate-y-0.5"
-                        >
-                            NDIS Issues
-                        </a>
-                    </div>
-
-                    <div class="flex justify-center px-1 sm:px-4">
-                        <a
-                            href="#"
-                            class="group relative flex w-full max-w-md min-h-[6.5rem] items-center justify-center rounded-[1.75rem] bg-gradient-to-br from-white via-violet-50/95 to-sva-lavender/85 px-7 py-8 text-center text-base font-semibold leading-snug text-sva-ink shadow-[0_4px_24px_rgba(109,40,217,0.1),0_24px_48px_-8px_rgba(76,29,149,0.22),16px_30px_58px_-12px_rgba(88,28,135,0.2),inset_0_1px_0_rgba(255,255,255,0.9)] ring-1 ring-violet-100/80 transition duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_8px_32px_rgba(109,40,217,0.14),0_32px_60px_-10px_rgba(76,29,149,0.28),20px_36px_70px_-14px_rgba(88,28,135,0.24),inset_0_1px_0_rgba(255,255,255,0.95)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-600 sm:max-w-lg sm:min-h-32 sm:rounded-[2rem] sm:px-10 sm:py-10 sm:text-lg md:max-w-xl"
-                        >
-                            Commonly Asked Questions
-                        </a>
-                    </div>
+                <div class="mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-5 sm:mt-14 sm:grid-cols-2 sm:gap-6">
+                    <a
+                        href="{{ route('faq') }}"
+                        class="group relative inline-flex min-h-14 items-center justify-between rounded-full border-2 border-[#5C55F2] bg-white pl-6 pr-2 text-base font-semibold text-[#2E2A6E] shadow-[0_10px_25px_rgba(92,85,242,0.18)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(92,85,242,0.24)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300 sm:min-h-16 sm:pl-7 sm:text-lg"
+                    >
+                        <span>FAQs</span>
+                        <span class="ml-4 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#5C55F2] text-white transition group-hover:bg-[#4A44CC] sm:h-11 sm:w-11">
+                            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                                <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </a>
+                    <a
+                        href="{{ route('you.asked') }}"
+                        class="group relative inline-flex min-h-14 items-center justify-between rounded-full border-2 border-[#5C55F2] bg-white pl-6 pr-2 text-base font-semibold text-[#2E2A6E] shadow-[0_10px_25px_rgba(92,85,242,0.18)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(92,85,242,0.24)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300 sm:min-h-16 sm:pl-7 sm:text-lg"
+                    >
+                        <span>You Asked</span>
+                        <span class="ml-4 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#5C55F2] text-white transition group-hover:bg-[#4A44CC] sm:h-11 sm:w-11">
+                            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                                <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </a>
                 </div>
             </div>
         </section>
