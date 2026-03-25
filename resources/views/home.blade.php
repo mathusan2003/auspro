@@ -37,24 +37,26 @@
     @endphp
 
     <section
-        class="relative isolate flex min-h-[360px] h-[64vh] items-center justify-center overflow-hidden bg-gradient-to-br from-sva-lavender via-white to-violet-100/90 sm:h-[70vh] md:h-[80vh] md:min-h-[560px]"
+        class="relative isolate flex min-h-[360px] h-[64vh] items-center justify-center overflow-hidden bg-violet-50 sm:h-[70vh] md:h-[80vh] md:min-h-[560px]"
         aria-label="Support Voice Australia hero"
     >
         <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-            <div class="absolute inset-0 bg-[radial-gradient(ellipse_100%_70%_at_50%_-15%,rgba(139,92,246,0.18)_0%,transparent_55%)]"></div>
-            <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_100%_60%,rgba(109,40,217,0.09)_0%,transparent_50%)]"></div>
-            <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_0%_85%,rgba(42,136,152,0.08)_0%,transparent_48%)]"></div>
-            <div class="absolute -left-20 top-1/4 h-72 w-72 rounded-full bg-violet-300/30 blur-3xl md:-left-28 md:h-96 md:w-96"></div>
-            <div class="absolute -right-24 bottom-1/4 h-80 w-80 rounded-full bg-fuchsia-200/35 blur-3xl md:right-0 md:h-[22rem] md:w-[22rem]"></div>
-            <div class="absolute left-1/2 top-1/2 h-64 w-[min(90%,28rem)] -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-violet-200/20 blur-3xl"></div>
+            <img
+                src="{{ asset('img/jhjk.png') }}"
+                alt=""
+                class="h-full w-full object-cover object-center"
+                loading="eager"
+                decoding="async"
+            >
+            <div class="absolute inset-0 bg-gradient-to-b from-white/45 via-white/20 to-sva-lavender/35"></div>
         </div>
 
-        <div class="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 py-12 text-center sm:max-w-5xl sm:py-14 md:max-w-6xl md:py-16">
-            <h1 class="max-w-4xl text-balance text-3xl font-bold leading-snug tracking-tight text-sva-ink sm:text-4xl md:text-5xl md:leading-tight lg:text-[3rem] lg:leading-tight">
+        <div class="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 py-14 text-center sm:max-w-5xl sm:py-16 md:max-w-6xl md:py-20">
+            <h1 class="max-w-4xl text-balance text-3xl font-bold leading-snug tracking-tight text-violet-700 sm:text-4xl md:text-5xl md:leading-tight lg:text-[3rem] lg:leading-tight">
                 Support Voice Australia –<br />
                 Supporting You Every Step of the Way
             </h1>
-            <p class="mt-6 max-w-3xl text-pretty text-lg leading-relaxed text-sva-body sm:mt-7 sm:text-xl md:mt-8 md:text-2xl">
+            <p class="mt-6 max-w-3xl text-pretty text-lg leading-relaxed text-neutral-900 sm:mt-7 sm:text-xl md:mt-8 md:text-2xl">
                 Personalised NDIS support designed around your needs and goals.
             </p>
         </div>
@@ -73,90 +75,78 @@
         </div>
     </section>
 
-    <div class="relative isolate overflow-hidden bg-gradient-to-br from-violet-100 via-sva-lavender to-violet-200/70 pt-8 md:pt-10 lg:pt-12">
-        <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-            <div class="absolute -left-24 top-0 h-72 w-72 rounded-full bg-violet-400/25 blur-3xl md:-left-32 md:h-96 md:w-96"></div>
-            <div class="absolute -right-20 top-1/4 h-64 w-64 -translate-y-1/2 rounded-full bg-indigo-400/20 blur-3xl md:right-0 md:h-80 md:w-80"></div>
-            <div class="absolute bottom-0 left-1/2 h-48 w-[120%] max-w-4xl -translate-x-1/2 translate-y-1/3 rounded-[100%] bg-violet-300/30 blur-3xl"></div>
-            <div class="absolute right-[12%] top-[18%] hidden h-24 w-24 rotate-12 rounded-2xl bg-violet-500/15 blur-xl sm:block"></div>
-        </div>
+    @php
+        $servicesUrl = \Illuminate\Support\Facades\Route::has('services')
+            ? route('services')
+            : url('/services');
+    @endphp
 
-        @php
-            $servicesUrl = \Illuminate\Support\Facades\Route::has('services')
-                ? route('services')
-                : url('/services');
-        @endphp
+    @php
+        $serviceDescriptions = [
+            'Community Networking and Support Forum' => 'Build meaningful peer connections through guided forums and community-led support spaces.',
+            'Support Network Development' => 'Strengthen your personal support circle with practical planning and trusted local connections.',
+            'Advocacy and Participant Support' => 'Receive participant-first advocacy that protects your rights and helps you navigate decisions confidently.',
+            'Information and Education Session' => 'Access clear NDIS education sessions that simplify complex information for families and participants.',
+            'Resource and Information Hub' => 'Explore reliable tools, references, and curated resources in one easy-to-use place.',
+            'Service Provider Connection and Guidance' => 'Find suitable providers faster with informed guidance tailored to your goals and preferences.',
+            'Stakeholder Engagement and Collaboration' => 'Create better outcomes through coordinated communication with families, providers, and communities.',
+        ];
+        $serviceSlides = array_map(
+            fn ($service) => [
+                'title' => $service['title'],
+                'description' => $serviceDescriptions[$service['title']] ?? 'Practical support designed around your goals.',
+            ],
+            $services,
+        );
+    @endphp
 
-        @php
-            $serviceDescriptions = [
-                'Community Networking and Support Forum' => 'Build meaningful peer connections through guided forums and community-led support spaces.',
-                'Support Network Development' => 'Strengthen your personal support circle with practical planning and trusted local connections.',
-                'Advocacy and Participant Support' => 'Receive participant-first advocacy that protects your rights and helps you navigate decisions confidently.',
-                'Information and Education Session' => 'Access clear NDIS education sessions that simplify complex information for families and participants.',
-                'Resource and Information Hub' => 'Explore reliable tools, references, and curated resources in one easy-to-use place.',
-                'Service Provider Connection and Guidance' => 'Find suitable providers faster with informed guidance tailored to your goals and preferences.',
-                'Stakeholder Engagement and Collaboration' => 'Create better outcomes through coordinated communication with families, providers, and communities.',
-            ];
-            $serviceSlides = array_map(
-                fn ($service) => [
-                    'title' => $service['title'],
-                    'description' => $serviceDescriptions[$service['title']] ?? 'Practical support designed around your goals.',
-                ],
-                $services,
-            );
-        @endphp
+    <section
+        id="services"
+        class="relative scroll-mt-24 bg-[#f7f5ff] pt-12 pb-9 md:pt-14 md:pb-11"
+        x-data="{
+            slides: @js($serviceSlides),
+            current: 0,
+            timer: null,
+            touchStartX: 0,
+            init() { this.startAuto(); },
+            startAuto() {
+                this.stopAuto();
+                this.timer = setInterval(() => this.next(), 5000);
+            },
+            stopAuto() {
+                if (this.timer) clearInterval(this.timer);
+                this.timer = null;
+            },
+            next() { this.current = (this.current + 1) % this.slides.length; },
+            prev() { this.current = (this.current - 1 + this.slides.length) % this.slides.length; },
+            isPrev(i) { return i === (this.current - 1 + this.slides.length) % this.slides.length; },
+            isNext(i) { return i === (this.current + 1) % this.slides.length; },
+            onTouchStart(e) {
+                this.touchStartX = e.changedTouches[0]?.clientX ?? 0;
+                this.stopAuto();
+            },
+            onTouchEnd(e) {
+                const endX = e.changedTouches[0]?.clientX ?? this.touchStartX;
+                const delta = endX - this.touchStartX;
+                if (Math.abs(delta) > 40) {
+                    delta > 0 ? this.prev() : this.next();
+                }
+                this.startAuto();
+            },
+        }"
+        x-on:mouseenter="stopAuto()"
+        x-on:mouseleave="startAuto()"
+    >
+        <div class="container relative z-10 mx-auto px-4 pt-1 md:pt-2">
+            <h2 class="mb-0 text-center text-3xl font-bold tracking-tight text-sva-ink sm:text-4xl">
+                Our Services
+            </h2>
 
-        <section
-            id="services"
-            class="relative isolate scroll-mt-24 overflow-hidden bg-[#D4D2F7] py-14 md:py-20"
-            x-data="{
-                slides: @js($serviceSlides),
-                current: 0,
-                timer: null,
-                touchStartX: 0,
-                init() { this.startAuto(); },
-                startAuto() {
-                    this.stopAuto();
-                    this.timer = setInterval(() => this.next(), 5000);
-                },
-                stopAuto() {
-                    if (this.timer) clearInterval(this.timer);
-                    this.timer = null;
-                },
-                next() { this.current = (this.current + 1) % this.slides.length; },
-                prev() { this.current = (this.current - 1 + this.slides.length) % this.slides.length; },
-                isPrev(i) { return i === (this.current - 1 + this.slides.length) % this.slides.length; },
-                isNext(i) { return i === (this.current + 1) % this.slides.length; },
-                onTouchStart(e) {
-                    this.touchStartX = e.changedTouches[0]?.clientX ?? 0;
-                    this.stopAuto();
-                },
-                onTouchEnd(e) {
-                    const endX = e.changedTouches[0]?.clientX ?? this.touchStartX;
-                    const delta = endX - this.touchStartX;
-                    if (Math.abs(delta) > 40) {
-                        delta > 0 ? this.prev() : this.next();
-                    }
-                    this.startAuto();
-                },
-            }"
-            x-on:mouseenter="stopAuto()"
-            x-on:mouseleave="startAuto()"
-        >
-            <div class="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
-                <div class="absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_50%_35%,rgba(255,255,255,0.28)_0%,rgba(233,213,255,0.1)_48%,transparent_74%)]"></div>
-            </div>
-
-            <div class="container relative z-10 mx-auto px-4">
-                <h2 class="text-center text-3xl font-bold tracking-tight text-sva-ink sm:text-4xl">
-                    Our Services
-                </h2>
-
-                <div
-                    class="relative mx-auto mt-10 w-full max-w-6xl overflow-hidden py-2"
-                    x-on:touchstart.passive="onTouchStart($event)"
-                    x-on:touchend.passive="onTouchEnd($event)"
-                >
+            <div
+                class="relative mx-auto mt-5 w-full max-w-6xl overflow-hidden py-2 sm:mt-6"
+                x-on:touchstart.passive="onTouchStart($event)"
+                x-on:touchend.passive="onTouchEnd($event)"
+            >
                     <button
                         type="button"
                         class="absolute left-2 top-1/2 z-40 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-violet-200/80 bg-white/85 text-sva-ink shadow-md transition hover:bg-white md:flex"
@@ -181,7 +171,6 @@
                             >
                                 <h3 class="text-center text-xl font-bold leading-snug sm:text-2xl md:text-[1.65rem]" x-text="slide.title"></h3>
                                 <p class="mt-4 text-sm leading-relaxed text-white/92 sm:text-base" x-text="slide.description"></p>
-                                <div class="mt-6 text-sm tracking-[0.28em] text-white/90" aria-hidden="true">★★★★★</div>
                             </article>
                         </template>
                     </div>
@@ -210,10 +199,9 @@
                     </template>
                 </div>
             </div>
-        </section>
+    </section>
 
-        <section id="faq" class="relative scroll-mt-24 overflow-hidden bg-neutral-950 bg-[url('/img/qu01.png')] bg-cover bg-center bg-no-repeat py-16 md:py-24">
-            <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30" aria-hidden="true"></div>
+    <section id="faq" class="relative scroll-mt-24 bg-[#eee5ff] py-16 md:py-24">
             <div class="container relative z-10 mx-auto px-4">
                 <h2 class="text-center text-3xl font-bold tracking-tight text-[#9784B0] sm:text-4xl md:text-[2.5rem] md:leading-tight">
                     Frequently Asked Questions
@@ -244,6 +232,5 @@
                     </a>
                 </div>
             </div>
-        </section>
-    </div>
+    </section>
 @endsection
