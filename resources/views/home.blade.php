@@ -53,7 +53,6 @@
 
         <div class="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 py-14 text-center sm:max-w-5xl sm:py-16 md:max-w-6xl md:py-20">
             <h1 class="max-w-4xl text-balance text-3xl font-bold leading-snug tracking-tight text-violet-700 sm:text-4xl md:text-5xl md:leading-tight lg:text-[3rem] lg:leading-tight">
-                Support Voice Australia –<br />
                 Supporting You Every Step of the Way
             </h1>
             <p class="mt-6 max-w-3xl text-pretty text-lg leading-relaxed text-neutral-900 sm:mt-7 sm:text-xl md:mt-8 md:text-2xl">
