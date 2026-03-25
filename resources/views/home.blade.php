@@ -52,18 +52,12 @@
             <div class="absolute inset-0 bg-violet-200/15"></div>
         </div>
 
-        <div class="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 py-12 text-center sm:max-w-5xl sm:py-14 md:py-16">
-            <img
-                src="{{ asset('img/navilogo.png') }}"
-                alt="Support Voice Australia"
-                class="w-full max-w-[15.5rem] object-contain drop-shadow-sm sm:max-w-[17.5rem] md:max-w-[21rem] lg:max-w-[23rem]"
-                decoding="async"
-                fetchpriority="high"
-            >
-            <h1 class="mt-8 max-w-3xl text-balance text-2xl font-bold leading-snug tracking-tight text-sva-ink sm:mt-10 sm:text-3xl md:mt-12 md:text-[2.05rem] md:leading-tight lg:text-[2.25rem]">
-                Support Voice Australia – Supporting You Every Step of the Way
+        <div class="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 py-12 text-center sm:max-w-5xl sm:py-14 md:max-w-6xl md:py-16">
+            <h1 class="max-w-4xl text-balance text-3xl font-bold leading-snug tracking-tight text-sva-ink sm:text-4xl md:text-5xl md:leading-tight lg:text-[3rem] lg:leading-tight">
+                Support Voice Australia –<br />
+                Supporting You Every Step of the Way
             </h1>
-            <p class="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-sva-body sm:mt-5 sm:text-lg">
+            <p class="mt-6 max-w-3xl text-pretty text-lg leading-relaxed text-sva-body sm:mt-7 sm:text-xl md:mt-8 md:text-2xl">
                 Personalised NDIS support designed around your needs and goals.
             </p>
         </div>
