@@ -74,7 +74,7 @@
                 <img
                     src="{{ asset('img/navilogo.png') }}"
                     alt="Support Voice Australia"
-                    class="h-28 w-auto max-h-36 shrink-0 object-contain sm:h-32 sm:max-h-40 md:h-36 md:max-h-44 lg:h-40 lg:max-h-48"
+                    class="h-20 w-auto max-h-28 shrink-0 object-contain sm:h-24 sm:max-h-32 md:h-28 md:max-h-36 lg:h-32 lg:max-h-40"
                     decoding="async"
                     fetchpriority="high"
                 >
@@ -208,6 +208,39 @@
                         aria-label="Request services"
                     >
                         Request Services
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-1.5 lg:hidden">
+                    <a
+                        href="{{ $navTelHref }}"
+                        class="inline-flex min-h-10 min-w-10 items-center justify-center rounded-lg border border-violet-200 bg-white text-sva-ink shadow-sm transition hover:border-violet-300 hover:bg-violet-50 hover:text-sva-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
+                        aria-label="Call us"
+                    >
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                    </a>
+                    <a
+                        href="{{ $navMailHref }}"
+                        class="inline-flex min-h-10 min-w-10 items-center justify-center rounded-lg border border-violet-200 bg-white text-sva-ink shadow-sm transition hover:border-violet-300 hover:bg-violet-50 hover:text-sva-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
+                        aria-label="Email us"
+                    >
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </a>
+                    <a
+                        href="{{ $navWhatsAppHref }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex min-h-10 min-w-10 items-center justify-center rounded-lg border border-violet-200 bg-white text-sva-ink shadow-sm transition hover:border-violet-300 hover:bg-violet-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
+                        aria-label="WhatsApp"
+                    >
+                        <svg class="h-5 w-5 text-current" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M20 11.5a8 8 0 0 1-11.9 6.9L4 20l1.7-3.6A8 8 0 1 1 20 11.5Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9.4 9.1c.3-.7.6-.7 1-.7h.7c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4 0 .6l-.3.5c-.1.2-.2.3-.1.5.2.6.8 1.3 1.4 1.6.2.1.4.1.6 0l.6-.3c.2-.1.4-.1.6 0l1.4.7c.2.1.3.3.3.5v.7c0 .4-.1.7-.6 1-1 .6-2.3.2-3.5-.4-1.3-.7-2.5-1.9-3.2-3.2-.6-1.2-1-2.5-.4-3.5Z" fill="currentColor"/>
+                        </svg>
                     </a>
                 </div>
 

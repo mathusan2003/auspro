@@ -13,7 +13,7 @@
                         <img
                             src="{{ asset('img/footlogo.svg') }}"
                             alt="Support Voice Australia"
-                            class="h-28 w-auto max-h-36 object-contain sm:h-32 sm:max-h-40 md:h-36 md:max-h-44 lg:h-40 lg:max-h-48"
+                            class="h-32 w-auto max-h-40 object-contain sm:h-32 sm:max-h-40 md:h-36 md:max-h-44 lg:h-40 lg:max-h-48"
                             loading="lazy"
                             decoding="async"
                         >

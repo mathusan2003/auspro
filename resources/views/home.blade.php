@@ -75,12 +75,6 @@
     </section>
 
     @php
-        $servicesUrl = \Illuminate\Support\Facades\Route::has('services')
-            ? route('services')
-            : url('/services');
-    @endphp
-
-    @php
         $serviceDescriptions = [
             'Community Networking and Support Forum' => 'Build meaningful peer connections through guided forums and community-led support spaces.',
             'Support Network Development' => 'Strengthen your personal support circle with practical planning and trusted local connections.',
@@ -101,103 +95,71 @@
 
     <section
         id="services"
-        class="relative scroll-mt-24 bg-[#f7f5ff] pt-6 pb-9 md:pt-12 md:pb-11"
-        x-data="{
-            slides: @js($serviceSlides),
-            current: 0,
-            timer: null,
-            touchStartX: 0,
-            init() { this.startAuto(); },
-            startAuto() {
-                this.stopAuto();
-                this.timer = setInterval(() => this.next(), 5000);
-            },
-            stopAuto() {
-                if (this.timer) clearInterval(this.timer);
-                this.timer = null;
-            },
-            next() { this.current = (this.current + 1) % this.slides.length; },
-            prev() { this.current = (this.current - 1 + this.slides.length) % this.slides.length; },
-            isPrev(i) { return i === (this.current - 1 + this.slides.length) % this.slides.length; },
-            isNext(i) { return i === (this.current + 1) % this.slides.length; },
-            onTouchStart(e) {
-                this.touchStartX = e.changedTouches[0]?.clientX ?? 0;
-                this.stopAuto();
-            },
-            onTouchEnd(e) {
-                const endX = e.changedTouches[0]?.clientX ?? this.touchStartX;
-                const delta = endX - this.touchStartX;
-                if (Math.abs(delta) > 40) {
-                    delta > 0 ? this.prev() : this.next();
-                }
-                this.startAuto();
-            },
-        }"
-        x-on:mouseenter="stopAuto()"
-        x-on:mouseleave="startAuto()"
+        class="relative scroll-mt-24 bg-[#f7f5ff] py-10 md:py-12"
+        aria-labelledby="services-heading"
     >
-        <div class="container relative z-10 mx-auto px-4 pt-0 md:pt-1">
-            <div
-                class="relative mx-auto mt-1 w-full max-w-6xl overflow-hidden py-2 sm:mt-4"
-                x-on:touchstart.passive="onTouchStart($event)"
-                x-on:touchend.passive="onTouchEnd($event)"
+        <div class="container relative z-10 mx-auto max-w-3xl px-4" x-data="{ servicesOpen: null }">
+            <h2
+                id="services-heading"
+                class="text-center text-3xl font-bold tracking-tight text-[#9784B0] sm:text-4xl md:text-[2.5rem] md:leading-tight"
             >
-                    <button
-                        type="button"
-                        class="absolute left-2 top-1/2 z-40 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-violet-200/80 bg-white/85 text-sva-ink shadow-md transition hover:bg-white md:flex"
-                        x-on:click="prev(); startAuto()"
-                        aria-label="Previous service"
-                    >
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
+                Our Services
+            </h2>
 
-                    <div class="relative mx-auto h-[22rem] sm:h-[20rem] md:h-[24rem]">
-                        <h2 class="pointer-events-none absolute left-1/2 top-5 z-50 w-full -translate-x-1/2 px-4 text-center text-3xl font-bold tracking-tight text-sva-ink sm:top-6 sm:text-4xl">
-                            Our Services
-                        </h2>
-
-                        <template x-for="(slide, index) in slides" :key="slide.title">
-                            <article
-                                class="absolute left-1/2 top-1/2 w-[88%] max-w-3xl -translate-x-1/2 -translate-y-1/2 rounded-2xl rounded-br-[3.25rem] border border-violet-200/55 bg-[#7b5ea7] p-7 text-white shadow-[0_18px_45px_rgba(91,46,135,0.32)] transition-all duration-500 ease-out sm:p-8 md:w-[74%] md:p-10"
-                                x-bind:class="{
-                                    'z-30 scale-100 opacity-100': index === current,
-                                    'z-20 hidden -translate-x-[112%] scale-[0.92] opacity-35 md:block': isPrev(index),
-                                    'z-20 hidden translate-x-[12%] scale-[0.92] opacity-35 md:block': isNext(index),
-                                    'z-0 pointer-events-none scale-90 opacity-0': index !== current && !isPrev(index) && !isNext(index),
-                                }"
+            <ul class="mt-8 flex flex-col gap-3 sm:mt-10 md:gap-4" role="list">
+                @foreach ($serviceSlides as $index => $item)
+                    <li class="list-none">
+                        <div class="rounded-2xl bg-white px-4 py-4 shadow-sm ring-1 ring-violet-200/60 md:rounded-3xl md:px-5 md:py-5">
+                            <button
+                                type="button"
+                                id="services-trigger-{{ $index }}"
+                                class="flex w-full items-start justify-between gap-4 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-500"
+                                x-on:click="servicesOpen = servicesOpen === {{ $index }} ? null : {{ $index }}"
+                                x-bind:aria-expanded="servicesOpen === {{ $index }} ? 'true' : 'false'"
+                                aria-controls="services-panel-{{ $index }}"
                             >
-                                <h3 class="text-center text-xl font-bold leading-snug sm:text-2xl md:text-[1.65rem]" x-text="slide.title"></h3>
-                                <p class="mt-4 text-sm leading-relaxed text-white/92 sm:text-base" x-text="slide.description"></p>
-                            </article>
-                        </template>
-                    </div>
-
-                    <button
-                        type="button"
-                        class="absolute right-2 top-1/2 z-40 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-violet-200/80 bg-white/85 text-sva-ink shadow-md transition hover:bg-white md:flex"
-                        x-on:click="next(); startAuto()"
-                        aria-label="Next service"
-                    >
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                </div>
-
-                <div class="mt-6 flex items-center justify-center gap-2">
-                    <template x-for="(slide, i) in slides" :key="`dot-${i}`">
-                        <button
-                            type="button"
-                            class="h-2.5 w-2.5 rounded-full transition"
-                            x-bind:class="i === current ? 'bg-sva-accent w-6' : 'bg-violet-300/80 hover:bg-violet-400'"
-                            x-on:click="current = i; startAuto()"
-                            :aria-label="`Go to service ${i + 1}`"
-                        ></button>
-                    </template>
-                </div>
-            </div>
+                                <span class="min-w-0 flex-1 pt-0.5 text-base font-bold leading-snug text-[#9784B0] md:text-lg">
+                                    {{ $item['title'] }}
+                                </span>
+                                <span
+                                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-950 text-white shadow-md"
+                                    aria-hidden="true"
+                                >
+                                    <svg
+                                        class="h-5 w-5 transition-transform duration-200"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2.2"
+                                        x-bind:class="servicesOpen === {{ $index }} ? 'rotate-180' : ''"
+                                    >
+                                        <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div
+                                id="services-panel-{{ $index }}"
+                                role="region"
+                                aria-labelledby="services-trigger-{{ $index }}"
+                                x-show="servicesOpen === {{ $index }}"
+                                x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter-start="opacity-0 -translate-y-1"
+                                x-transition:enter-end="opacity-100 translate-y-0"
+                                x-transition:leave="transition ease-in duration-150"
+                                x-transition:leave-start="opacity-100 translate-y-0"
+                                x-transition:leave-end="opacity-0 -translate-y-1"
+                                x-cloak
+                                class="mt-4 border-t border-violet-200/50 pt-4"
+                            >
+                                <p class="pr-14 text-sm leading-relaxed text-sva-body md:text-base">
+                                    {{ $item['description'] }}
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
     </section>
 
     <section id="faq" class="relative scroll-mt-24 bg-[#eee5ff] py-16 md:py-24">

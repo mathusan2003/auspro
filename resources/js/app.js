@@ -48,48 +48,12 @@ document.addEventListener('alpine:init', () => {
         syncScrollState(y) {
             const topThreshold = 12;
             this.atTop = y <= topThreshold;
-            if (this.atTop) {
-                this.navVisible = true;
-            }
+            this.navVisible = true;
         },
 
         onScroll() {
             const y = window.scrollY;
-
-            if (this.reduceMotion) {
-                this.syncScrollState(y);
-                this.navVisible = true;
-                this.lastY = y;
-                return;
-            }
-
-            const topThreshold = 12;
-            if (y <= topThreshold) {
-                this.atTop = true;
-                this.navVisible = true;
-                this.lastY = y;
-                return;
-            }
-
-            this.atTop = false;
-
-            if (this.menuOpen) {
-                this.navVisible = true;
-                this.lastY = y;
-                return;
-            }
-
-            const delta = y - this.lastY;
-            const minDelta = 4;
-            if (Math.abs(delta) < minDelta) {
-                this.lastY = y;
-                return;
-            }
-
-            this.navVisible = delta < 0;
-            if (!this.navVisible) {
-                this.closeQaDropdown();
-            }
+            this.syncScrollState(y);
             this.lastY = y;
         },
     }));
