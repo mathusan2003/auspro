@@ -37,19 +37,16 @@
     @endphp
 
     <section
-        class="relative isolate flex min-h-[360px] h-[64vh] items-center justify-center overflow-hidden sm:h-[70vh] md:h-[80vh] md:min-h-[560px]"
+        class="relative isolate flex min-h-[360px] h-[64vh] items-center justify-center overflow-hidden bg-gradient-to-br from-sva-lavender via-white to-violet-100/90 sm:h-[70vh] md:h-[80vh] md:min-h-[560px]"
         aria-label="Support Voice Australia hero"
     >
-        <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-            <img
-                src="{{ asset('img/newh.png') }}"
-                alt=""
-                class="h-full w-full scale-105 object-cover object-center blur-[2px] brightness-[1.06] saturate-95"
-                loading="eager"
-                decoding="async"
-            >
-            <div class="absolute inset-0 bg-gradient-to-b from-white/55 via-violet-50/30 to-sva-lavender/50"></div>
-            <div class="absolute inset-0 bg-violet-200/15"></div>
+        <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_100%_70%_at_50%_-15%,rgba(139,92,246,0.18)_0%,transparent_55%)]"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_100%_60%,rgba(109,40,217,0.09)_0%,transparent_50%)]"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_0%_85%,rgba(42,136,152,0.08)_0%,transparent_48%)]"></div>
+            <div class="absolute -left-20 top-1/4 h-72 w-72 rounded-full bg-violet-300/30 blur-3xl md:-left-28 md:h-96 md:w-96"></div>
+            <div class="absolute -right-24 bottom-1/4 h-80 w-80 rounded-full bg-fuchsia-200/35 blur-3xl md:right-0 md:h-[22rem] md:w-[22rem]"></div>
+            <div class="absolute left-1/2 top-1/2 h-64 w-[min(90%,28rem)] -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-violet-200/20 blur-3xl"></div>
         </div>
 
         <div class="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 py-12 text-center sm:max-w-5xl sm:py-14 md:max-w-6xl md:py-16">
