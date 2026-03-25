@@ -4,7 +4,7 @@
     <div class="relative z-10">
         <div class="container mx-auto px-4 py-12 md:py-14">
             <div class="flex flex-col items-center gap-10 text-center md:flex-row md:items-start md:justify-between md:text-left">
-                <div class="max-w-sm md:max-w-xs">
+                <div class="max-w-md md:max-w-sm">
                     <a
                         href="{{ url('/') }}"
                         class="inline-flex items-center rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
@@ -13,7 +13,7 @@
                         <img
                             src="{{ asset('img/footlogo.svg') }}"
                             alt="Support Voice Australia"
-                            class="h-24 w-auto max-h-32 object-contain sm:h-28 md:h-32 lg:h-36 lg:max-h-40"
+                            class="h-28 w-auto max-h-36 object-contain sm:h-32 sm:max-h-40 md:h-36 md:max-h-44 lg:h-40 lg:max-h-48"
                             loading="lazy"
                             decoding="async"
                         >

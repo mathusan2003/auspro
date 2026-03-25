@@ -101,7 +101,7 @@
 
     <section
         id="services"
-        class="relative scroll-mt-24 bg-[#f7f5ff] pt-12 pb-9 md:pt-14 md:pb-11"
+        class="relative scroll-mt-24 bg-[#f7f5ff] pt-6 pb-9 md:pt-12 md:pb-11"
         x-data="{
             slides: @js($serviceSlides),
             current: 0,
@@ -136,13 +136,9 @@
         x-on:mouseenter="stopAuto()"
         x-on:mouseleave="startAuto()"
     >
-        <div class="container relative z-10 mx-auto px-4 pt-1 md:pt-2">
-            <h2 class="mb-0 text-center text-3xl font-bold tracking-tight text-sva-ink sm:text-4xl">
-                Our Services
-            </h2>
-
+        <div class="container relative z-10 mx-auto px-4 pt-0 md:pt-1">
             <div
-                class="relative mx-auto mt-5 w-full max-w-6xl overflow-hidden py-2 sm:mt-6"
+                class="relative mx-auto mt-1 w-full max-w-6xl overflow-hidden py-2 sm:mt-4"
                 x-on:touchstart.passive="onTouchStart($event)"
                 x-on:touchend.passive="onTouchEnd($event)"
             >
@@ -158,6 +154,10 @@
                     </button>
 
                     <div class="relative mx-auto h-[22rem] sm:h-[20rem] md:h-[24rem]">
+                        <h2 class="pointer-events-none absolute left-1/2 top-5 z-50 w-full -translate-x-1/2 px-4 text-center text-3xl font-bold tracking-tight text-sva-ink sm:top-6 sm:text-4xl">
+                            Our Services
+                        </h2>
+
                         <template x-for="(slide, index) in slides" :key="slide.title">
                             <article
                                 class="absolute left-1/2 top-1/2 w-[88%] max-w-3xl -translate-x-1/2 -translate-y-1/2 rounded-2xl rounded-br-[3.25rem] border border-violet-200/55 bg-[#7b5ea7] p-7 text-white shadow-[0_18px_45px_rgba(91,46,135,0.32)] transition-all duration-500 ease-out sm:p-8 md:w-[74%] md:p-10"

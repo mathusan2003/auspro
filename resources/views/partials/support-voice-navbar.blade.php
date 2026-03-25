@@ -74,7 +74,7 @@
                 <img
                     src="{{ asset('img/navilogo.png') }}"
                     alt="Support Voice Australia"
-                    class="h-24 w-auto max-h-32 shrink-0 object-contain sm:h-28 sm:max-h-36 md:h-32 md:max-h-40 lg:h-36 lg:max-h-44"
+                    class="h-28 w-auto max-h-36 shrink-0 object-contain sm:h-32 sm:max-h-40 md:h-36 md:max-h-44 lg:h-40 lg:max-h-48"
                     decoding="async"
                     fetchpriority="high"
                 >
