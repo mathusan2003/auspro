@@ -56,7 +56,7 @@
                 Supporting You Every Step of the Way
             </h1>
             <p class="mt-6 max-w-3xl text-pretty text-lg leading-relaxed text-neutral-900 sm:mt-7 sm:text-xl md:mt-8 md:text-2xl">
-                Personalised NDIS support designed around your needs and goals.
+                Tailor-made supports to navigate NDIS
             </p>
         </div>
     </section>
