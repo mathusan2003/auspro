@@ -1,7 +1,7 @@
 @php
     $home = route('home');
     $navTelHref = 'tel:+611300000000';
-    $navMailHref = 'mailto:hello@supportvoiceaustralia.org.au';
+    $navMessageHref = 'https://wa.me/611300000000';
     $navWhatsAppHref = 'https://wa.me/611300000000';
     $servicesPageUrl = \Illuminate\Support\Facades\Route::has('services')
         ? route('services')
@@ -74,7 +74,7 @@
                 <img
                     src="{{ asset('img/navilogo.png') }}"
                     alt="Support Voice Australia"
-                    class="h-20 w-auto max-h-28 shrink-0 object-contain sm:h-24 sm:max-h-32 md:h-28 md:max-h-36 lg:h-32 lg:max-h-40"
+                    class="h-16 w-auto max-h-24 shrink-0 object-contain sm:h-20 sm:max-h-28 md:h-24 md:max-h-32 lg:h-28 lg:max-h-36"
                     decoding="async"
                     fetchpriority="high"
                 >
@@ -172,12 +172,16 @@
                         </svg>
                     </a>
                     <a
-                        href="{{ $navMailHref }}"
+                        href="{{ $navMessageHref }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         class="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-lg border border-violet-200 bg-white text-sva-ink shadow-sm transition hover:border-violet-300 hover:bg-violet-50 hover:text-sva-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
-                        aria-label="Email us"
+                        aria-label="Message us"
+                        title="Message us"
                     >
                         <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h8M8 14h5"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 6h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-4 3V8a2 2 0 0 1 2-2z"/>
                         </svg>
                     </a>
 
@@ -222,12 +226,15 @@
                         </svg>
                     </a>
                     <a
-                        href="{{ $navMailHref }}"
+                        href="{{ $navMessageHref }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         class="inline-flex min-h-10 min-w-10 items-center justify-center rounded-lg border border-violet-200 bg-white text-sva-ink shadow-sm transition hover:border-violet-300 hover:bg-violet-50 hover:text-sva-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
-                        aria-label="Email us"
+                        aria-label="Message us"
                     >
                         <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h8M8 14h5"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 6h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-4 3V8a2 2 0 0 1 2-2z"/>
                         </svg>
                     </a>
                     <a

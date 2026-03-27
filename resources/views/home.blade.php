@@ -56,21 +56,8 @@
                 Supporting You Every Step of the Way
             </h1>
             <p class="mt-6 max-w-3xl text-pretty text-lg leading-relaxed text-neutral-900 sm:mt-7 sm:text-xl md:mt-8 md:text-2xl">
-                Tailor-made supports to navigate NDIS
+                Support Voice Australia exists to amplify participant voices, strengthen community connections, and make navigating the NDIS clearer and fairer. We bring people together through advocacy, education, and practical support so every person can pursue their goals with confidence.
             </p>
-        </div>
-    </section>
-
-    <section class="bg-white py-12 sm:py-14 md:py-16">
-        <div class="container mx-auto px-4">
-            <div class="mx-auto max-w-4xl text-center">
-                <h2 class="text-3xl font-semibold tracking-tight text-sva-ink sm:text-4xl md:text-[2.65rem]">
-                    We are here to support
-                </h2>
-                <p class="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-sva-body sm:text-lg">
-                    Support Voice Australia exists to amplify participant voices, strengthen community connections, and make navigating the NDIS clearer and fairer. We bring people together through advocacy, education, and practical support so every person can pursue their goals with confidence.
-                </p>
-            </div>
         </div>
     </section>
 
