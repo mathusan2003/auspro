@@ -120,14 +120,7 @@
 
                     <aside class="lg:col-span-5">
                         <div class="space-y-8 rounded-2xl border border-violet-100 bg-white/70 p-6 shadow-md shadow-violet-100/40 backdrop-blur-sm sm:p-8 lg:sticky lg:top-28">
-                            <div>
-                                <h2 class="text-lg font-semibold text-sva-ink">Address</h2>
-                                <p class="mt-3 text-base leading-relaxed text-sva-body">
-                                    <span class="block">Your organisation address line 1</span>
-                                    <span class="block">Suburb, State Postcode</span>
-                                    <span class="block">Australia</span>
-                                </p>
-                            </div>
+                            
                             <div>
                                 <h2 class="text-lg font-semibold text-sva-ink">Email</h2>
                                 <a

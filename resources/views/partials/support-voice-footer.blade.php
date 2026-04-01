@@ -21,11 +21,26 @@
                 </div>
 
                 <div id="contact" class="w-full max-w-md scroll-mt-24 md:max-w-sm">
-                    <h2 class="text-lg font-semibold text-white">Address</h2>
+                    <h2 class="text-lg font-semibold text-white">Email</h2>
+                    <p class="mt-3">
+                        <a
+                            href="mailto:hello@supportvoiceaustralia.org.au"
+                            class="text-base leading-relaxed text-white/80 underline-offset-2 transition hover:text-white hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                        >
+                            hello@supportvoiceaustralia.org.au
+                        </a>
+                    </p>
+                    <h2 class="mt-6 text-lg font-semibold text-white">Phone</h2>
                     <p class="mt-3 text-base leading-relaxed text-white/80">
-                        <span class="block">Your organisation address line 1</span>
-                        <span class="block">Suburb, State Postcode</span>
-                        <span class="block">Australia</span>
+                        <a
+                            href="tel:+611300000000"
+                            class="underline-offset-2 transition hover:text-white hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                        >
+                            1300 000 000
+                        </a>
+                    </p>
+                    <p class="mt-2 text-sm leading-relaxed text-white/65">
+                        Replace with your organisation number.
                     </p>
                 </div>
 

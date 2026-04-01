@@ -37,12 +37,12 @@
     @endphp
 
     <section
-        class="relative isolate flex min-h-[360px] h-[64vh] items-center justify-center overflow-hidden bg-violet-50 sm:h-[70vh] md:h-[80vh] md:min-h-[560px]"
+        class="relative isolate flex min-h-[360px] h-[64vh] items-start justify-center overflow-hidden bg-violet-50 sm:h-[70vh] md:h-[80vh] md:min-h-[560px]"
         aria-label="Support Voice Australia hero"
     >
         <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
             <img
-                src="{{ asset('img/jhjk.png') }}"
+                src="{{ asset('img/zxy.jpeg') }}"
                 alt=""
                 class="h-full w-full object-cover object-center"
                 loading="eager"
@@ -51,7 +51,7 @@
             <div class="absolute inset-0 bg-gradient-to-b from-white/45 via-white/20 to-sva-lavender/35"></div>
         </div>
 
-        <div class="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 py-14 text-center sm:max-w-5xl sm:py-16 md:max-w-6xl md:py-20">
+        <div class="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 pt-6 pb-12 text-center sm:max-w-5xl sm:pt-8 sm:pb-14 md:max-w-6xl md:pt-10 md:pb-16">
             <h1 class="max-w-4xl text-balance text-3xl font-bold leading-snug tracking-tight text-violet-700 sm:text-4xl md:text-5xl md:leading-tight lg:text-[3rem] lg:leading-tight">
                 Supporting You Every Step of the Way
             </h1>
@@ -59,6 +59,16 @@
                 Support Voice Australia exists to amplify participant voices, strengthen community connections, and make navigating the NDIS clearer and fairer. We bring people together through advocacy, education, and practical support so every person can pursue their goals with confidence.
             </p>
         </div>
+    </section>
+
+    <section class="w-full overflow-hidden bg-violet-50/40" aria-hidden="true">
+        <img
+            src="{{ asset('img/afterhero.jpeg') }}"
+            alt=""
+            class="block h-auto w-full"
+            loading="lazy"
+            decoding="async"
+        >
     </section>
 
     @php
@@ -82,9 +92,18 @@
 
     <section
         id="services"
-        class="relative scroll-mt-24 bg-[#f7f5ff] py-10 md:py-12"
+        class="relative isolate scroll-mt-24 overflow-hidden py-10 md:py-12"
         aria-labelledby="services-heading"
     >
+        <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+            <img
+                src="{{ asset('img/serback.jpeg') }}"
+                alt=""
+                class="h-full w-full object-cover object-center"
+                loading="lazy"
+                decoding="async"
+            >
+        </div>
         <div class="container relative z-10 mx-auto max-w-3xl px-4" x-data="{ servicesOpen: null }">
             <h2
                 id="services-heading"
@@ -149,8 +168,27 @@
         </div>
     </section>
 
-    <section id="faq" class="relative scroll-mt-24 bg-[#eee5ff] py-16 md:py-24">
-            <div class="container relative z-10 mx-auto px-4">
+    <section class="w-full overflow-hidden bg-violet-50/40" aria-hidden="true">
+        <img
+            src="{{ asset('img/afterfq.jpeg') }}"
+            alt=""
+            class="block h-auto w-full"
+            loading="lazy"
+            decoding="async"
+        >
+    </section>
+
+    <section id="faq" class="relative isolate scroll-mt-24 overflow-hidden py-16 md:py-24">
+        <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+            <img
+                src="{{ asset('img/fqback.jpeg') }}"
+                alt=""
+                class="h-full w-full object-cover object-center"
+                loading="lazy"
+                decoding="async"
+            >
+        </div>
+        <div class="container relative z-10 mx-auto px-4">
                 <h2 class="text-center text-3xl font-bold tracking-tight text-[#9784B0] sm:text-4xl md:text-[2.5rem] md:leading-tight">
                     Frequently Asked Questions
                 </h2>
