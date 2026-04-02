@@ -46,12 +46,12 @@
         >
         {{-- Curved title aligned to illustration arch (matches main hero h1: violet-700, bold, tight tracking) --}}
         <div
-            class="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-sva-lavender/90 via-sva-lavender/35 to-transparent px-3 pb-3 pt-10 sm:px-4 sm:pb-4 sm:pt-14 md:pt-16"
+            class="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-sva-lavender/90 via-sva-lavender/35 to-transparent px-3 pb-3 pt-12 sm:px-4 sm:pb-4 sm:pt-16 md:pt-20"
             aria-hidden="true"
         >
             <svg
-                class="h-auto w-full max-w-[min(100%,22rem)] overflow-visible sm:max-w-xl md:max-w-2xl lg:max-w-3xl"
-                viewBox="0 0 560 76"
+                class="h-auto w-full max-w-[min(100%,26rem)] overflow-visible sm:max-w-2xl md:max-w-3xl lg:max-w-4xl"
+                viewBox="0 0 560 92"
                 preserveAspectRatio="xMidYMax meet"
                 role="presentation"
                 focusable="false"
@@ -59,14 +59,14 @@
                 <defs>
                     <path
                         id="imghero-banner-arch-path"
-                        d="M 42 58 Q 280 22 518 58"
+                        d="M 32 76 Q 280 4 528 76"
                         fill="none"
                     />
                 </defs>
                 <text
                     dominant-baseline="central"
                     text-anchor="middle"
-                    style="font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; font-weight: 700; letter-spacing: -0.03em; fill: #6d28d9; font-size: clamp(10px, 2.85vw, 20px);"
+                    style="font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; font-weight: 800; letter-spacing: -0.035em; fill: #6d28d9; font-size: clamp(12px, 4.5vw, 26px);"
                 >
                     <textPath href="#imghero-banner-arch-path" startOffset="50%">
                         Supporting You Every Step of the Way
@@ -77,28 +77,27 @@
     </section>
 
     <section
-        class="relative isolate flex min-h-[360px] h-[64vh] items-start justify-center overflow-hidden bg-violet-50 sm:h-[70vh] md:h-[80vh] md:min-h-[560px]"
+        class="relative isolate flex h-auto min-h-[260px] items-start justify-center overflow-hidden bg-violet-50 sm:min-h-[300px] md:min-h-[340px]"
         aria-label="Support Voice Australia hero"
     >
-        <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div class="pointer-events-none absolute inset-0 min-h-full" aria-hidden="true">
             <img
                 src="{{ asset('img/hhero.jpeg') }}"
                 alt=""
-                class="h-full w-full object-cover object-center"
+                class="h-full min-h-[260px] w-full object-cover object-center sm:min-h-[300px] md:min-h-[340px]"
                 loading="eager"
                 decoding="async"
             >
             <div class="absolute inset-0 bg-gradient-to-b from-white/50 via-white/25 to-violet-50/40"></div>
         </div>
-        <div class="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 pt-6 pb-12 text-center sm:max-w-5xl sm:pt-8 sm:pb-14 md:max-w-6xl md:pt-10 md:pb-16">
-            
+        <div class="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 pt-6 pb-4 text-center sm:max-w-5xl sm:pt-8 sm:pb-5 md:max-w-6xl md:pt-10 md:pb-6">
             <p class="mt-6 max-w-3xl text-pretty text-lg leading-relaxed sm:mt-7 sm:text-xl md:mt-8 md:text-2xl" style="color: #9A7BD6;">
                 Support Voice Australia exists to amplify participant voices, strengthen community connections, and make navigating the NDIS clearer and fairer. We bring people together through advocacy, education, and practical support so every person can pursue their goals with confidence.
             </p>
         </div>
     </section>
 
-    <section class="flex w-full justify-center overflow-hidden bg-violet-50/40 px-3 sm:px-4" aria-hidden="true">
+    <section class="flex w-full justify-center overflow-hidden bg-violet-50/40 px-3 pt-1 sm:px-4 sm:pt-2" aria-hidden="true">
         <img
             src="{{ asset('img/afterhero.jpeg') }}"
             alt=""
