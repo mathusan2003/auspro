@@ -36,21 +36,30 @@
         ];
     @endphp
 
+    <section class="w-full overflow-hidden bg-sva-lavender/40" aria-hidden="true">
+        <img
+            src="{{ asset('img/imghero.jpg.jpeg') }}"
+            alt=""
+            class="block h-auto w-full"
+            loading="eager"
+            decoding="async"
+        >
+    </section>
+
     <section
         class="relative isolate flex min-h-[360px] h-[64vh] items-start justify-center overflow-hidden bg-violet-50 sm:h-[70vh] md:h-[80vh] md:min-h-[560px]"
         aria-label="Support Voice Australia hero"
     >
-        <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div class="pointer-events-none absolute inset-0" aria-hidden="true">
             <img
-                src="{{ asset('img/zxy.jpeg') }}"
+                src="{{ asset('img/hhero.jpeg') }}"
                 alt=""
                 class="h-full w-full object-cover object-center"
                 loading="eager"
                 decoding="async"
             >
-            <div class="absolute inset-0 bg-gradient-to-b from-white/45 via-white/20 to-sva-lavender/35"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-white/50 via-white/25 to-violet-50/40"></div>
         </div>
-
         <div class="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 pt-6 pb-12 text-center sm:max-w-5xl sm:pt-8 sm:pb-14 md:max-w-6xl md:pt-10 md:pb-16">
             <h1 class="max-w-4xl text-balance text-3xl font-bold leading-snug tracking-tight text-violet-700 sm:text-4xl md:text-5xl md:leading-tight lg:text-[3rem] lg:leading-tight">
                 Supporting You Every Step of the Way

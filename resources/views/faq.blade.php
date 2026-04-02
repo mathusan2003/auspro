@@ -110,21 +110,9 @@
 
     <div class="bg-white">
         <section
-            class="relative isolate overflow-hidden bg-gradient-to-br from-[#1a0a2e] via-violet-950 to-indigo-950 pb-16 pt-12 md:pb-20 md:pt-16 lg:pb-24 lg:pt-20"
+            class="relative bg-white pb-12 pt-12 md:pb-16 md:pt-16 lg:pb-20 lg:pt-20"
             aria-labelledby="faq-hero-heading"
         >
-            <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-                <div class="absolute -left-24 top-8 h-80 w-80 rounded-full bg-violet-600/15 blur-3xl"></div>
-                <div class="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-indigo-600/20 blur-3xl"></div>
-                <div
-                    class="pointer-events-none absolute right-[4%] top-[10%] h-40 w-52 opacity-50 sm:h-48 sm:w-64 md:right-[6%] md:top-[12%] bg-[radial-gradient(circle_at_center,rgba(147,197,253,0.85)_1.5px,transparent_1.5px)] [background-size:14px_14px]"
-                    aria-hidden="true"
-                ></div>
-                <div
-                    class="pointer-events-none absolute right-[5%] top-[11%] h-40 w-52 opacity-35 mix-blend-screen sm:h-48 sm:w-64 md:right-[7%] md:top-[13%] bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.7)_1px,transparent_1px)] [background-size:22px_22px] [background-position:8px_10px]"
-                    aria-hidden="true"
-                ></div>
-            </div>
             <div class="container relative z-10 mx-auto px-4">
                 <div class="text-center">
                     <h1
@@ -134,14 +122,14 @@
                     >
                         Frequently Asked Questions
                     </h1>
-                    <p class="mt-4 text-lg font-medium text-white/90 md:text-xl">
+                    <p class="mt-4 text-lg font-medium text-sva-body md:text-xl">
                         FAQs
                     </p>
                 </div>
                 <div class="mt-8 flex justify-end sm:mt-10 md:mt-12">
                     <a
                         href="{{ route('home') }}#faq"
-                        class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-black text-white shadow-lg transition hover:bg-neutral-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:h-14 sm:w-14"
+                        class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-black text-white shadow-lg transition hover:bg-neutral-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 sm:h-14 sm:w-14"
                         aria-label="Back to Frequently Asked Questions on home"
                     >
                         <svg class="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -153,7 +141,7 @@
         </section>
 
         <section
-            class="relative -mt-6 rounded-t-[1.75rem] bg-gradient-to-b from-sva-lavender/90 via-white to-white px-4 pb-16 pt-10 md:rounded-t-[2rem] md:pb-20 md:pt-12"
+            class="relative bg-gradient-to-b from-sva-lavender/90 via-white to-white px-4 pb-16 pt-6 md:pb-20 md:pt-10"
             aria-label="FAQ list"
         >
             <div class="container mx-auto max-w-3xl" x-data="{ faqOpen: null }">
