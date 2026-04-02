@@ -55,17 +55,17 @@
             <h1 class="max-w-4xl text-balance text-3xl font-bold leading-snug tracking-tight text-violet-700 sm:text-4xl md:text-5xl md:leading-tight lg:text-[3rem] lg:leading-tight">
                 Supporting You Every Step of the Way
             </h1>
-            <p class="mt-6 max-w-3xl text-pretty text-lg leading-relaxed text-neutral-900 sm:mt-7 sm:text-xl md:mt-8 md:text-2xl">
+            <p class="mt-6 max-w-3xl text-pretty text-lg leading-relaxed sm:mt-7 sm:text-xl md:mt-8 md:text-2xl" style="color: #9A7BD6;">
                 Support Voice Australia exists to amplify participant voices, strengthen community connections, and make navigating the NDIS clearer and fairer. We bring people together through advocacy, education, and practical support so every person can pursue their goals with confidence.
             </p>
         </div>
     </section>
 
-    <section class="w-full overflow-hidden bg-violet-50/40" aria-hidden="true">
+    <section class="flex w-full justify-center overflow-hidden bg-violet-50/40 px-3 sm:px-4" aria-hidden="true">
         <img
             src="{{ asset('img/afterhero.jpeg') }}"
             alt=""
-            class="block h-auto w-full"
+            class="block h-auto w-[92%] max-w-3xl object-contain sm:w-[88%] md:max-w-2xl"
             loading="lazy"
             decoding="async"
         >
@@ -107,7 +107,8 @@
         <div class="container relative z-10 mx-auto max-w-3xl px-4" x-data="{ servicesOpen: null }">
             <h2
                 id="services-heading"
-                class="text-center text-3xl font-bold tracking-tight text-[#9784B0] sm:text-4xl md:text-[2.5rem] md:leading-tight"
+                class="text-center text-3xl font-bold tracking-tight sm:text-4xl md:text-[2.5rem] md:leading-tight"
+                style="color: #7B2FF7;"
             >
                 Our Services
             </h2>
@@ -124,7 +125,7 @@
                                 x-bind:aria-expanded="servicesOpen === {{ $index }} ? 'true' : 'false'"
                                 aria-controls="services-panel-{{ $index }}"
                             >
-                                <span class="min-w-0 flex-1 pt-0.5 text-base font-bold leading-snug text-[#9784B0] md:text-lg">
+                                <span class="min-w-0 flex-1 pt-0.5 text-base font-bold leading-snug md:text-lg" style="color: #9A7BD6;">
                                     {{ $item['title'] }}
                                 </span>
                                 <span
@@ -189,7 +190,7 @@
             >
         </div>
         <div class="container relative z-10 mx-auto px-4">
-                <h2 class="text-center text-3xl font-bold tracking-tight text-[#9784B0] sm:text-4xl md:text-[2.5rem] md:leading-tight">
+                <h2 class="text-center text-3xl font-bold tracking-tight sm:text-4xl md:text-[2.5rem] md:leading-tight" style="color: #7B2FF7;">
                     Frequently Asked Questions
                 </h2>
 

@@ -109,41 +109,53 @@
     @endphp
 
     <div class="bg-white">
-        <section class="relative isolate overflow-hidden bg-gradient-to-br from-indigo-950 via-violet-900 to-indigo-950 pb-16 pt-12 md:pb-20 md:pt-16 lg:pb-24 lg:pt-20" aria-labelledby="faq-hero-heading">
+        <section
+            class="relative isolate overflow-hidden bg-gradient-to-br from-[#1a0a2e] via-violet-950 to-indigo-950 pb-16 pt-12 md:pb-20 md:pt-16 lg:pb-24 lg:pt-20"
+            aria-labelledby="faq-hero-heading"
+        >
             <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-                <div class="absolute -left-20 top-10 h-72 w-72 rounded-full bg-violet-500/20 blur-3xl md:h-96 md:w-96"></div>
-                <div class="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-indigo-600/25 blur-3xl"></div>
-                <div class="absolute right-[8%] top-[12%] hidden opacity-30 sm:block">
-                    <svg class="h-32 w-32 text-white/40 md:h-40 md:w-40" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-                        <path stroke="currentColor" stroke-width="1.2" d="M60 8v104M8 60h104M22 22l76 76M98 22L22 98M60 8l52 52M8 60l52-52M60 112l52-52M112 60l-52-52"/>
-                        <circle cx="60" cy="60" r="10" stroke="currentColor" stroke-width="1.2"/>
-                    </svg>
-                </div>
+                <div class="absolute -left-24 top-8 h-80 w-80 rounded-full bg-violet-600/15 blur-3xl"></div>
+                <div class="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-indigo-600/20 blur-3xl"></div>
+                <div
+                    class="pointer-events-none absolute right-[4%] top-[10%] h-40 w-52 opacity-50 sm:h-48 sm:w-64 md:right-[6%] md:top-[12%] bg-[radial-gradient(circle_at_center,rgba(147,197,253,0.85)_1.5px,transparent_1.5px)] [background-size:14px_14px]"
+                    aria-hidden="true"
+                ></div>
+                <div
+                    class="pointer-events-none absolute right-[5%] top-[11%] h-40 w-52 opacity-35 mix-blend-screen sm:h-48 sm:w-64 md:right-[7%] md:top-[13%] bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.7)_1px,transparent_1px)] [background-size:22px_22px] [background-position:8px_10px]"
+                    aria-hidden="true"
+                ></div>
             </div>
             <div class="container relative z-10 mx-auto px-4">
-                <div class="mb-6 flex justify-center sm:justify-start">
-                    <a
-                        href="{{ route('home') }}#faq"
-                        class="inline-flex items-center gap-2 rounded-lg border border-white/25 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white shadow-sm backdrop-blur-sm transition hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                    >
-                        <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Back to Frequently Asked Questions
-                    </a>
-                </div>
                 <div class="text-center">
-                    <h1 id="faq-hero-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[2.75rem] lg:leading-tight">
+                    <h1
+                        id="faq-hero-heading"
+                        class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-[2.75rem] lg:leading-tight"
+                        style="color: #7B2FF7;"
+                    >
                         Frequently Asked Questions
                     </h1>
-                    <p class="mt-4 text-lg font-medium text-violet-200/90 md:text-xl">
+                    <p class="mt-4 text-lg font-medium text-white/90 md:text-xl">
                         FAQs
                     </p>
+                </div>
+                <div class="mt-8 flex justify-end sm:mt-10 md:mt-12">
+                    <a
+                        href="{{ route('home') }}#faq"
+                        class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-black text-white shadow-lg transition hover:bg-neutral-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:h-14 sm:w-14"
+                        aria-label="Back to Frequently Asked Questions on home"
+                    >
+                        <svg class="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <section class="relative -mt-6 rounded-t-[1.75rem] bg-gradient-to-b from-sva-lavender/80 via-white to-white px-4 pb-16 pt-10 md:rounded-t-[2rem] md:pb-20 md:pt-12" aria-label="FAQ list">
+        <section
+            class="relative -mt-6 rounded-t-[1.75rem] bg-gradient-to-b from-sva-lavender/90 via-white to-white px-4 pb-16 pt-10 md:rounded-t-[2rem] md:pb-20 md:pt-12"
+            aria-label="FAQ list"
+        >
             <div class="container mx-auto max-w-3xl" x-data="{ faqOpen: null }">
                 <ul class="flex flex-col gap-3 md:gap-4">
                     @foreach ($faqItems as $index => $item)
@@ -157,7 +169,7 @@
                                     x-bind:aria-expanded="faqOpen === {{ $index }} ? 'true' : 'false'"
                                     aria-controls="faq-panel-{{ $index }}"
                                 >
-                                    <span class="min-w-0 flex-1 pt-0.5 text-base font-bold leading-snug text-[#9784B0] md:text-lg">
+                                    <span class="min-w-0 flex-1 pt-0.5 text-base font-bold leading-snug md:text-lg" style="color: #9A7BD6;">
                                         {{ $item['q'] }}
                                     </span>
                                     <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-950 text-white shadow-md" aria-hidden="true">

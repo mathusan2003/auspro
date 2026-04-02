@@ -67,17 +67,6 @@
                 ></div>
             </div>
             <div class="container relative z-10 mx-auto px-4">
-                <div class="mb-6 flex justify-center sm:justify-start">
-                    <a
-                        href="{{ route('home') }}#faq"
-                        class="inline-flex items-center gap-2 rounded-lg border border-white/25 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white shadow-sm backdrop-blur-sm transition hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                    >
-                        <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Back to Frequently Asked Questions
-                    </a>
-                </div>
                 <div class="text-center">
                     <h1 id="you-asked-hero-heading" class="text-3xl font-bold tracking-tight text-[#9784B0] sm:text-4xl md:text-5xl lg:text-[2.75rem] lg:leading-tight">
                         You Asked
@@ -85,6 +74,17 @@
                     <p class="mt-4 text-lg font-medium text-white/90 md:text-xl">
                         Commonly Asked Questions
                     </p>
+                </div>
+                <div class="mt-8 flex justify-end sm:mt-10 md:mt-12">
+                    <a
+                        href="{{ route('home') }}#faq"
+                        class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-black text-white shadow-lg transition hover:bg-neutral-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:h-14 sm:w-14"
+                        aria-label="Back to Frequently Asked Questions on home"
+                    >
+                        <svg class="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </section>
@@ -106,7 +106,7 @@
                                     x-bind:aria-expanded="yaOpen === {{ $index }} ? 'true' : 'false'"
                                     aria-controls="ya-panel-{{ $index }}"
                                 >
-                                    <span class="min-w-0 flex-1 pt-0.5 text-base font-bold leading-snug text-[#9784B0] md:text-lg">
+                                    <span class="min-w-0 flex-1 pt-0.5 text-base font-bold leading-snug text-[#9A7BD6] md:text-lg">
                                         {{ $item['q'] }}
                                     </span>
                                     <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-950 text-white shadow-md" aria-hidden="true">

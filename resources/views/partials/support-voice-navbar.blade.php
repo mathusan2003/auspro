@@ -254,14 +254,14 @@
                 <button
                     type="button"
                     class="relative z-[60] inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border-0 shadow-sm transition hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:hidden"
-                    style="background-color: #1C87A3; color: #7A4799;"
+                    style="background-color: #7B2FF7; color: #ffffff;"
                     aria-controls="mobile-navigation"
                     x-bind:aria-expanded="menuOpen ? 'true' : 'false'"
                     x-on:click.stop="toggleMenu()"
                 >
                     <span class="sr-only">Toggle menu</span>
-                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#7A4799" stroke-width="2" aria-hidden="true">
-                        <path d="M4 7h16M4 12h16M4 17h16" stroke="#7A4799" stroke-linecap="round"/>
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" aria-hidden="true">
+                        <path d="M4 7h16M4 12h16M4 17h16" stroke="#ffffff" stroke-linecap="round"/>
                     </svg>
                 </button>
             </div>
