@@ -69,7 +69,7 @@
                     style="font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; font-weight: 800; letter-spacing: -0.035em; fill: #6d28d9; font-size: clamp(12px, 4.5vw, 26px);"
                 >
                     <textPath href="#imghero-banner-arch-path" startOffset="50%">
-                        Supporting You Every Step of the Way
+                        
                     </textPath>
                 </text>
             </svg>
