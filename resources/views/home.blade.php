@@ -36,7 +36,7 @@
         ];
     @endphp
 
-    <section class="w-full overflow-hidden bg-sva-lavender/40" aria-hidden="true">
+    <section class="relative w-full overflow-hidden bg-sva-lavender/40">
         <img
             src="{{ asset('img/imghero.jpg.jpeg') }}"
             alt=""
@@ -44,6 +44,36 @@
             loading="eager"
             decoding="async"
         >
+        {{-- Curved title aligned to illustration arch (matches main hero h1: violet-700, bold, tight tracking) --}}
+        <div
+            class="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-sva-lavender/90 via-sva-lavender/35 to-transparent px-3 pb-3 pt-10 sm:px-4 sm:pb-4 sm:pt-14 md:pt-16"
+            aria-hidden="true"
+        >
+            <svg
+                class="h-auto w-full max-w-[min(100%,22rem)] overflow-visible sm:max-w-xl md:max-w-2xl lg:max-w-3xl"
+                viewBox="0 0 560 76"
+                preserveAspectRatio="xMidYMax meet"
+                role="presentation"
+                focusable="false"
+            >
+                <defs>
+                    <path
+                        id="imghero-banner-arch-path"
+                        d="M 42 58 Q 280 22 518 58"
+                        fill="none"
+                    />
+                </defs>
+                <text
+                    dominant-baseline="central"
+                    text-anchor="middle"
+                    style="font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; font-weight: 700; letter-spacing: -0.03em; fill: #6d28d9; font-size: clamp(10px, 2.85vw, 20px);"
+                >
+                    <textPath href="#imghero-banner-arch-path" startOffset="50%">
+                        Supporting You Every Step of the Way
+                    </textPath>
+                </text>
+            </svg>
+        </div>
     </section>
 
     <section
@@ -61,9 +91,7 @@
             <div class="absolute inset-0 bg-gradient-to-b from-white/50 via-white/25 to-violet-50/40"></div>
         </div>
         <div class="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 pt-6 pb-12 text-center sm:max-w-5xl sm:pt-8 sm:pb-14 md:max-w-6xl md:pt-10 md:pb-16">
-            <h1 class="max-w-4xl text-balance text-3xl font-bold leading-snug tracking-tight text-violet-700 sm:text-4xl md:text-5xl md:leading-tight lg:text-[3rem] lg:leading-tight">
-                Supporting You Every Step of the Way
-            </h1>
+            
             <p class="mt-6 max-w-3xl text-pretty text-lg leading-relaxed sm:mt-7 sm:text-xl md:mt-8 md:text-2xl" style="color: #9A7BD6;">
                 Support Voice Australia exists to amplify participant voices, strengthen community connections, and make navigating the NDIS clearer and fairer. We bring people together through advocacy, education, and practical support so every person can pursue their goals with confidence.
             </p>
