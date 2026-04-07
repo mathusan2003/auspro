@@ -72,7 +72,7 @@
                 aria-label="Support Voice Australia — Home"
             >
                 <img
-                    src="{{ asset('img/navilogo.png') }}"
+                    src="{{ asset('img/logo updated.jpg.jpeg') }}"
                     alt="Support Voice Australia"
                     class="h-16 w-auto max-h-24 shrink-0 object-contain sm:h-20 sm:max-h-28 md:h-24 md:max-h-32 lg:h-28 lg:max-h-36"
                     decoding="async"

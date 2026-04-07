@@ -44,40 +44,23 @@
             loading="eager"
             decoding="async"
         >
-        {{-- Curved title aligned to illustration arch (matches main hero h1: violet-700, bold, tight tracking) --}}
+        {{-- Straight title at bottom-center of top image --}}
         <div
             class="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-sva-lavender/90 via-sva-lavender/35 to-transparent px-3 pb-3 pt-12 sm:px-4 sm:pb-4 sm:pt-16 md:pt-20"
             aria-hidden="true"
         >
-            <svg
-                class="h-auto w-full max-w-[min(100%,26rem)] overflow-visible sm:max-w-2xl md:max-w-3xl lg:max-w-4xl"
-                viewBox="0 0 560 92"
-                preserveAspectRatio="xMidYMax meet"
-                role="presentation"
-                focusable="false"
+            <p
+                class="w-full max-w-[min(100%,26rem)] text-center font-bold tracking-tight text-violet-700 sm:max-w-2xl md:max-w-3xl lg:max-w-4xl"
+                style="font-size: clamp(10px, 3.2vw, 18px);"
             >
-                <defs>
-                    <path
-                        id="imghero-banner-arch-path"
-                        d="M 32 76 Q 280 4 528 76"
-                        fill="none"
-                    />
-                </defs>
-                <text
-                    dominant-baseline="central"
-                    text-anchor="middle"
-                    style="font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; font-weight: 800; letter-spacing: -0.035em; fill: #6d28d9; font-size: clamp(12px, 4.5vw, 26px);"
-                >
-                    <textPath href="#imghero-banner-arch-path" startOffset="50%">
-                        
-                    </textPath>
-                </text>
-            </svg>
+                <span class="block">Supporting You Every</span>
+                <span class="mt-0.5 block">Step of the Way</span>
+            </p>
         </div>
     </section>
 
     <section
-        class="relative isolate flex h-auto min-h-[260px] items-start justify-center overflow-hidden bg-violet-50 sm:min-h-[300px] md:min-h-[340px]"
+        class="relative isolate flex h-auto min-h-[260px] items-start justify-center overflow-hidden bg-violet-50 sm:min-h-[300px] md:min-h-[calc(100vh-16rem)] lg:min-h-[calc(100vh-18rem)]"
         aria-label="Support Voice Australia hero"
     >
         <div class="pointer-events-none absolute inset-0 min-h-full" aria-hidden="true">
@@ -97,7 +80,7 @@
         </div>
     </section>
 
-    <section class="flex w-full justify-center overflow-hidden bg-violet-50/40 px-3 pt-1 sm:px-4 sm:pt-2" aria-hidden="true">
+    <section class="flex w-full justify-center overflow-hidden bg-violet-50/40 px-3 pt-1 sm:px-4 sm:pt-2 md:hidden" aria-hidden="true">
         <img
             src="{{ asset('img/afterhero.jpeg') }}"
             alt=""
@@ -237,7 +220,7 @@
                         class="group relative inline-flex min-h-14 items-center justify-between rounded-full border-2 border-[#5C55F2] bg-white pl-6 pr-2 text-base font-semibold text-[#2E2A6E] shadow-[0_10px_25px_rgba(92,85,242,0.18)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(92,85,242,0.24)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300 sm:min-h-16 sm:pl-7 sm:text-lg"
                     >
                         <span>FAQs</span>
-                        <span class="ml-4 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#5C55F2] text-white transition group-hover:bg-[#4A44CC] sm:h-11 sm:w-11">
+                        <span class="ml-4 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white shadow-sm transition sm:h-11 sm:w-11" style="background-color: #6D28D9;">
                             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
                                 <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
@@ -248,7 +231,7 @@
                         class="group relative inline-flex min-h-14 items-center justify-between rounded-full border-2 border-[#5C55F2] bg-white pl-6 pr-2 text-base font-semibold text-[#2E2A6E] shadow-[0_10px_25px_rgba(92,85,242,0.18)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(92,85,242,0.24)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300 sm:min-h-16 sm:pl-7 sm:text-lg"
                     >
                         <span>You Asked</span>
-                        <span class="ml-4 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#5C55F2] text-white transition group-hover:bg-[#4A44CC] sm:h-11 sm:w-11">
+                        <span class="ml-4 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white shadow-sm transition sm:h-11 sm:w-11" style="background-color: #6D28D9;">
                             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
                                 <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>

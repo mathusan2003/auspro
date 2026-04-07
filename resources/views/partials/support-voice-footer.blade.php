@@ -52,7 +52,7 @@
                         href="{{ route('contact') }}"
                         class="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-white px-6 text-base font-semibold text-sva-accent shadow-lg transition hover:bg-violet-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:w-auto"
                     >
-                        Contact Us
+                        Reach out to us
                     </a>
                 </div>
             </div>
