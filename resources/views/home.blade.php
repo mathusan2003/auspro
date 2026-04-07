@@ -91,7 +91,7 @@
             <div class="absolute inset-0 bg-gradient-to-b from-white/50 via-white/25 to-violet-50/40"></div>
         </div>
         <div class="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 pt-6 pb-4 text-center sm:max-w-5xl sm:pt-8 sm:pb-5 md:max-w-6xl md:pt-10 md:pb-6">
-            <p class="mt-6 max-w-3xl text-pretty text-lg leading-relaxed sm:mt-7 sm:text-xl md:mt-8 md:text-2xl" style="color: #9A7BD6;">
+            <p class="mt-6 max-w-3xl text-pretty text-lg leading-relaxed sm:mt-7 sm:text-xl md:mt-8 md:text-2xl" style="color: black; font-weight: bold;">
                 Support Voice Australia exists to amplify participant voices, strengthen community connections, and make navigating the NDIS clearer and fairer. We bring people together through advocacy, education, and practical support so every person can pursue their goals with confidence.
             </p>
         </div>
@@ -161,11 +161,12 @@
                                 x-bind:aria-expanded="servicesOpen === {{ $index }} ? 'true' : 'false'"
                                 aria-controls="services-panel-{{ $index }}"
                             >
-                                <span class="min-w-0 flex-1 pt-0.5 text-base font-bold leading-snug md:text-lg" style="color: #9A7BD6;">
+                                <span class="min-w-0 flex-1 pt-0.5 text-base font-bold leading-snug md:text-lg" style="color: black; font-weight: bold;">
                                     {{ $item['title'] }}
                                 </span>
                                 <span
-                                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-950 text-white shadow-md"
+                                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white shadow-md"
+                                    style="background-color: #6D28D9;"
                                     aria-hidden="true"
                                 >
                                     <svg

@@ -172,7 +172,7 @@
                                     <span class="min-w-0 flex-1 pt-0.5 text-base font-bold leading-snug md:text-lg" style="color: #9A7BD6;">
                                         {{ $item['q'] }}
                                     </span>
-                                    <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-950 text-white shadow-md" aria-hidden="true">
+                                    <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white shadow-md" style="background-color: #6D28D9;" aria-hidden="true">
                                         <svg class="h-5 w-5 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" x-bind:class="faqOpen === {{ $index }} ? 'rotate-180' : ''">
                                             <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
