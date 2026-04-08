@@ -43,7 +43,7 @@
         <div class="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 pt-6 pb-4 text-center sm:max-w-5xl sm:pt-8 sm:pb-5 md:max-w-6xl md:pt-8 md:pb-5">
             <div class="relative w-full max-w-[20rem] sm:max-w-md md:max-w-xl">
                 <img
-                    src="{{ asset('img/1536.png') }}"
+                    src="{{ asset('img/imghero.jpg.jpeg') }}"
                     alt=""
                     class="w-full object-contain"
                     loading="eager"
@@ -70,7 +70,7 @@
         <img
             src="{{ asset('img/update.png') }}"
             alt=""
-            class="block h-auto w-full max-h-14 object-contain sm:max-h-16"
+            class="block h-auto w-full max-h-16 object-contain sm:max-h-20"
             loading="lazy"
             decoding="async"
         >
