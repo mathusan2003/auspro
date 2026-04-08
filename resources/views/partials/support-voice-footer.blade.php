@@ -1,6 +1,4 @@
-<footer class="relative mt-0 overflow-hidden bg-sva-footer bg-[url('/img/footer%20bg.png')] bg-cover bg-center bg-no-repeat text-white">
-    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-sva-footer/80 via-sva-footer/40 to-transparent" aria-hidden="true"></div>
-
+<footer class="relative mt-0 overflow-hidden text-white" style="background-color: #221c55;">
     <div class="relative z-10">
         <div class="container mx-auto px-4 py-12 md:py-14">
             <div class="flex flex-col items-center gap-10 text-center md:flex-row md:items-start md:justify-between md:text-left">
@@ -11,7 +9,7 @@
                         aria-label="Support Voice Australia — Home"
                     >
                         <img
-                            src="{{ asset('img/footlogo.svg') }}"
+                            src="{{ asset('img/footer logo.jpg (2).jpeg') }}"
                             alt="Support Voice Australia"
                             class="h-32 w-auto max-h-40 object-contain sm:h-32 sm:max-h-40 md:h-36 md:max-h-44 lg:h-40 lg:max-h-48"
                             loading="lazy"

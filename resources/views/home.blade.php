@@ -36,45 +36,31 @@
         ];
     @endphp
 
-    <section class="relative w-full overflow-hidden bg-sva-lavender/40">
-        <img
-            src="{{ asset('img/imghero.jpg.jpeg') }}"
-            alt=""
-            class="block h-auto w-full"
-            loading="eager"
-            decoding="async"
-        >
-        {{-- Straight title at bottom-center of top image --}}
-        <div
-            class="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-sva-lavender/90 via-sva-lavender/35 to-transparent px-3 pb-3 pt-12 sm:px-4 sm:pb-4 sm:pt-16 md:pt-20"
-            aria-hidden="true"
-        >
-            <p
-                class="w-full max-w-[min(100%,26rem)] text-center font-bold tracking-tight text-violet-700 sm:max-w-2xl md:max-w-3xl lg:max-w-4xl"
-                style="font-size: clamp(10px, 3.2vw, 18px);"
-            >
-                <span class="block">Supporting You Every</span>
-                <span class="mt-0.5 block">Step of the Way</span>
-            </p>
-        </div>
-    </section>
-
     <section
-        class="relative isolate flex h-auto min-h-[260px] items-start justify-center overflow-hidden bg-violet-50 sm:min-h-[300px] md:min-h-[calc(100vh-16rem)] lg:min-h-[calc(100vh-18rem)]"
+        class="relative isolate flex min-h-[calc(100svh-5.5rem)] items-start justify-center overflow-hidden bg-gradient-to-b from-[#e9e8ef] via-[#e8e7ef] to-[#d8c1e8] md:min-h-[calc(100svh-7rem)] lg:min-h-[calc(100svh-7.5rem)]"
         aria-label="Support Voice Australia hero"
     >
-        <div class="pointer-events-none absolute inset-0 min-h-full" aria-hidden="true">
-            <img
-                src="{{ asset('img/hhero.jpeg') }}"
-                alt=""
-                class="h-full min-h-[260px] w-full object-cover object-center sm:min-h-[300px] md:min-h-[340px]"
-                loading="eager"
-                decoding="async"
-            >
-            <div class="absolute inset-0 bg-gradient-to-b from-white/50 via-white/25 to-violet-50/40"></div>
-        </div>
-        <div class="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 pt-6 pb-4 text-center sm:max-w-5xl sm:pt-8 sm:pb-5 md:max-w-6xl md:pt-10 md:pb-6">
-            <p class="mt-6 max-w-3xl text-pretty text-lg leading-relaxed sm:mt-7 sm:text-xl md:mt-8 md:text-2xl" style="color: black; font-weight: bold;">
+        <div class="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 pt-6 pb-4 text-center sm:max-w-5xl sm:pt-8 sm:pb-5 md:max-w-6xl md:pt-8 md:pb-5">
+            <div class="relative w-full max-w-[16rem] sm:max-w-sm md:max-w-md">
+                <img
+                    src="{{ asset('img/1536.png') }}"
+                    alt=""
+                    class="w-full object-contain"
+                    loading="eager"
+                    decoding="async"
+                >
+                <div class="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-[#ece8f4]/90 via-[#ece8f4]/40 to-transparent px-2 pb-2 pt-10 sm:pb-3 sm:pt-12 md:pt-14">
+                    <p
+                        class="text-center text-xs font-semibold leading-snug tracking-tight sm:text-sm md:text-base"
+                        style="color: #7B2FF7; font-family: 'Poppins', 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;"
+                    >
+                        <span class="block">Supporting You Every</span>
+                        <span class="block">Step of the</span>
+                        <span class="block">Way</span>
+                    </p>
+                </div>
+            </div>
+            <p class="mt-4 max-w-3xl text-pretty text-lg leading-relaxed sm:mt-5 sm:text-xl md:mt-6 md:text-2xl" style="color: black; font-weight: 500; font-family: 'Poppins', 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;">
                 Support Voice Australia exists to amplify participant voices, strengthen community connections, and make navigating the NDIS clearer and fairer. We bring people together through advocacy, education, and practical support so every person can pursue their goals with confidence.
             </p>
         </div>
@@ -82,9 +68,9 @@
 
     <section class="flex w-full justify-center overflow-hidden bg-violet-50/40 px-3 pt-1 sm:px-4 sm:pt-2 md:hidden" aria-hidden="true">
         <img
-            src="{{ asset('img/afterhero.jpeg') }}"
+            src="{{ asset('img/update.png') }}"
             alt=""
-            class="block h-auto w-[92%] max-w-3xl object-contain sm:w-[88%] md:max-w-2xl"
+            class="block h-auto w-full max-h-14 object-contain sm:max-h-16"
             loading="lazy"
             decoding="async"
         >
@@ -111,18 +97,9 @@
 
     <section
         id="services"
-        class="relative isolate scroll-mt-24 overflow-hidden py-10 md:py-12"
+        class="relative isolate scroll-mt-24 overflow-hidden bg-[#e8e2ff] py-10 md:py-12"
         aria-labelledby="services-heading"
     >
-        <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-            <img
-                src="{{ asset('img/serback.jpeg') }}"
-                alt=""
-                class="h-full w-full object-cover object-center"
-                loading="lazy"
-                decoding="async"
-            >
-        </div>
         <div class="container relative z-10 mx-auto max-w-3xl px-4" x-data="{ servicesOpen: null }">
             <h2
                 id="services-heading"
