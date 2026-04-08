@@ -41,7 +41,7 @@
         aria-label="Support Voice Australia hero"
     >
         <div class="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 pt-6 pb-4 text-center sm:max-w-5xl sm:pt-8 sm:pb-5 md:max-w-6xl md:pt-8 md:pb-5">
-            <div class="relative w-full max-w-[16rem] sm:max-w-sm md:max-w-md">
+            <div class="relative w-full max-w-[20rem] sm:max-w-md md:max-w-xl">
                 <img
                     src="{{ asset('img/1536.png') }}"
                     alt=""
